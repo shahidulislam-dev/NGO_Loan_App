@@ -4,6 +4,7 @@ import 'package:ngo_app/widgets_common/custom_dropdown.dart';
 import 'package:ngo_app/widgets_common/custom_radio.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
+import 'package:ngo_app/widgets_common/district_dropdown.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -166,7 +167,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 color: darkGrey,
               ),
               const SizedBox(height: 10),
-              const CustomDropdowns(),
+              const DistrictDropdown(),
               const SizedBox(height: 10),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

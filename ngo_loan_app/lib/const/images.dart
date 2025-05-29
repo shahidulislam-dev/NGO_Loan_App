@@ -23,4 +23,5 @@ const homeImage2 = "assets/images/homeImage2.png";
 const donateImage = "assets/images/donateImage.png";
 const kycCompleteImage = "assets/images/kycCompleteImage.png";
 const successImage = "assets/images/successImage.png";
-
+const completeProfileImage = "assets/images/completeProfileImage.png";
+const identityDocumentImage = "assets/images/identityDocumentImage.png";

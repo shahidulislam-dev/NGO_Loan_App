@@ -35,7 +35,7 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
     }
   }
 
-  Widget _buildStepIndicator() {
+  Widget _buildStepIcons() {
     final icons = [
       Icons.person_2_outlined,
       Icons.featured_play_list_sharp,
@@ -44,18 +44,15 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
     ];
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50,),
+      padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Row(
         children: List.generate(icons.length * 2 - 1, (i) {
           if (i.isOdd) {
-            // This is the connector line between steps
             int lineIndex = (i - 1) ~/ 2;
             bool isCompletedOrCurrent = (_completedSteps[lineIndex] || _currentStep > lineIndex);
-
             return Expanded(
               child: Container(
                 height: 4,
-                // Use gradient for the line if completed or current, else gray
                 decoration: BoxDecoration(
                   gradient: isCompletedOrCurrent ? gradientBackground : null,
                   color: isCompletedOrCurrent ? null : Colors.grey[300],
@@ -67,35 +64,32 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
             int index = i ~/ 2;
             bool isCurrent = _currentStep == index;
             bool isCompleted = _completedSteps[index];
-
             double size = isCurrent ? 50 : 20;
 
-            return Container(
-              width: size,
-              height: size,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: (isCurrent || isCompleted) ? gradientBackground : null,
-                color: (isCurrent || isCompleted) ? null : Colors.grey[300],
-                boxShadow: (isCurrent || isCompleted)
-                    ? [const BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2))]
-                    : null,
-              ),
-
-              child: Center(
-                child: isCurrent
-                    ? Icon(
-                  icons[index],
-                  color: Colors.white,
-                  size: 30,
-                )
-                    : isCompleted
-                    ? const Icon(
-                  Icons.check,
-                  color: Colors.white,
-                  size: 14,
-                )
-                    : null,
+            return GestureDetector(
+              onTap: () {
+                if (_completedSteps[index]) {
+                  setState(() => _currentStep = index);
+                }
+              },
+              child: Container(
+                width: size,
+                height: size,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: (isCurrent || isCompleted) ? gradientBackground : null,
+                  color: (isCurrent || isCompleted) ? null : Colors.grey[300],
+                  boxShadow: (isCurrent || isCompleted)
+                      ? [const BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2))]
+                      : null,
+                ),
+                child: Center(
+                  child: isCurrent
+                      ? Icon(icons[index], color: Colors.white, size: 30)
+                      : isCompleted
+                      ? const Icon(Icons.check, color: Colors.white, size: 14)
+                      : null,
+                ),
               ),
             );
           }
@@ -104,6 +98,21 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
     );
   }
 
+  Widget _buildStepTitle() {
+    final titles = ["Personal Information", "Identity Documents", "Address Details", "Proof of Address"];
+    return Padding(
+      padding: const EdgeInsets.only(top:15, left: 20, right: 20),
+      child: Text(
+        titles[_currentStep],
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: darkGrey,
+        ),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
 
   Widget _buildStepContent() {
     switch (_currentStep) {
@@ -135,7 +144,6 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
@@ -150,20 +158,23 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
                 child: Icon(Icons.arrow_back_ios_new, size: 24),
               ),
             ),
-            Expanded(child: _buildStepIndicator()), // Your custom widget
+            Expanded(child: _buildStepIcons()),
           ],
         ),
       ),
       body: Column(
         children: [
+          _buildStepTitle(), // Step title below AppBar
           Expanded(
             child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 children: [
                   _buildStepContent(),
                   const SizedBox(height: 20),
                   customButton(onPressed: _nextStep, text: _currentStep == 3 ? 'Submit' : 'Next'),
-
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

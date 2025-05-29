@@ -9,8 +9,11 @@ class CustomTextfield extends StatelessWidget {
   final bool? enabled;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final bool? readOnly;
+  final VoidCallback? onTap;
 
-  const CustomTextfield({super.key,  required this.controller, this.keyboardType, this.isObscureText = false, this.obscureCharacter = "*", required this.hintText, this.prefixIcon, this.suffixIcon, this.enabled});
+
+  const CustomTextfield({super.key,  required this.controller, this.keyboardType, this.isObscureText = false, this.obscureCharacter = "*", required this.hintText, this.prefixIcon, this.suffixIcon, this.enabled, this.readOnly, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +25,8 @@ class CustomTextfield extends StatelessWidget {
       obscureText: isObscureText!,
       obscuringCharacter: obscureCharacter!,
       enabled: enabled,
+      readOnly: readOnly ?? false,
+      onTap: onTap,
       style: const TextStyle(fontSize: 18),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(top: 15.0, bottom: 15, left: 10),

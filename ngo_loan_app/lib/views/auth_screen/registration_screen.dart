@@ -10,6 +10,7 @@ import 'package:ngo_app/widgets_common/custom_textfield.dart';
 
 
 import 'package:ngo_app/widgets_common/custom_text.dart';
+import 'package:ngo_app/widgets_common/district_dropdown.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -70,7 +71,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   prefixIcon: const Icon(Icons.phone_in_talk, color: iconColor, size: 40),
                 ),
                 const SizedBox(height: 20),
-                const CustomDropdowns(),
+                const DistrictDropdown(),
                 const SizedBox(height: 17),
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
