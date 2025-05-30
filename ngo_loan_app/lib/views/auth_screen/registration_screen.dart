@@ -108,7 +108,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
                 const SizedBox(height: 50),
-                const CustomCheckbox(),
+                const CustomCheckbox(labelText: policy,),
               ],
             ),
             Positioned(

@@ -44,11 +44,11 @@ class _DistrictDropdownState extends State<DistrictDropdown> {
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: borderColor, width: 1.5),
-          borderRadius: BorderRadius.circular(8), // Same as roundedSM
+          borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
           children: [
-            const Icon(Icons.location_on, color: iconColor, size: 40),
+            const Icon(Icons.location_on, color: iconColor, size: 30),
             Expanded(
               child: DropdownButtonHideUnderline(
                 child: DropdownButton2<String>(

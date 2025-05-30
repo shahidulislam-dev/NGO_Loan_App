@@ -1,7 +1,14 @@
 import 'package:ngo_app/const/const.dart';
 
 class CustomCheckbox extends StatefulWidget {
-  const CustomCheckbox({super.key});
+  final String labelText;
+  final Color textColor;
+
+  const CustomCheckbox({
+    super.key,
+    required this.labelText,
+    this.textColor = Colors.white,
+  });
 
   @override
   State<CustomCheckbox> createState() => _CustomCheckboxState();
@@ -45,11 +52,11 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
             ),
           ),
           const SizedBox(width: 20),
-          const Expanded(
+          Expanded(
             child: Text(
-              policy,
+              widget.labelText,
               textAlign: TextAlign.left,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: widget.textColor),
             ),
           ),
         ],
