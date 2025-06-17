@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ngo_app/views/loan_apply/complete_kyc/kyc_completed_screen.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import '../../../const/colors.dart';
 import 'personal_information.dart';
@@ -27,13 +29,12 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
         if (_currentStep < 3) {
           _currentStep++;
         } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('KYC Completed!')),
-          );
+          Get.to(() => const KycCompletedScreen());
         }
       });
     }
   }
+
 
   Widget _buildStepIcons() {
     final icons = [
@@ -173,7 +174,7 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
                 children: [
                   _buildStepContent(),
                   const SizedBox(height: 20),
-                  customButton(onPressed: _nextStep, text: _currentStep == 3 ? 'Submit' : 'Next'),
+                customButton(onPressed: _nextStep, text: _currentStep == 3 ? 'Submit' : 'Next'),
                   const SizedBox(height: 20),
                 ],
               ),

@@ -15,6 +15,7 @@ const takaIcon = "assets/icons/takaIcon.png";
 const idCardIcon = "assets/icons/IDCardIcon.png";
 const idCardBackIcon = "assets/icons/IdCardIconBack.png";
 const proofAddressImage = "assets/icons/proofAddressImage.png";
+const successIcon = "assets/icons/successIcon.png";
 const firstWelcome = "assets/images/firstWelcome.jpeg";
 const secondWelcome = "assets/images/secondWelcome.png";
 const thirdWelcome = "assets/images/thirdWelcome.jpeg";

@@ -13,6 +13,7 @@ const borderColor = Color.fromRGBO(196, 196, 196, 1);
 const iconColor = Color.fromRGBO(2, 177, 241, 0.478);
 const darkBlue = Color.fromRGBO(0, 2, 120, 0.47843137254901963);
 const fontsLight = Color.fromRGBO(134, 146, 166, 1);
+const appPurpleColor = Color(0xFFB608DA);
 
 // Your existing colors and gradient
 const gradientBackground = LinearGradient(
