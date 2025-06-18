@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
 import 'package:ngo_app/views/loan_apply/complete_kyc/complet_kyc_screen.dart';
+import 'package:ngo_app/views/loan_apply/education_help/exam_score_eligibility.dart';
 import 'package:ngo_app/widgets_common/home_card.dart';
 import 'package:ngo_app/const/styles.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
@@ -54,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                   Expanded(
                     child: GestureDetector(
                       onTap: (){
-                        Get.to( CompleteKycScreen());
+                        Get.to( const CompleteKycScreen());
                       },
                       child: homeCard(
                         icon: loanIcon1,
@@ -65,10 +66,13 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(width: 18),
                   Expanded(
-                    child: homeCard(
-                      icon: loanIcon2,
-                      title: "Education Help Apply",
-                      status: "View Status",
+                    child: GestureDetector(
+                      onTap: (){Get.to(const ExamScoreEligibility());},
+                      child: homeCard(
+                        icon: loanIcon2,
+                        title: "Education Help Apply",
+                        status: "View Status",
+                      ),
                     ),
                   ),
                 ],

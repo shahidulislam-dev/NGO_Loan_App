@@ -1,6 +1,5 @@
 import 'package:ngo_app/const/const.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
-import 'package:ngo_app/widgets_common/custom_dropdown.dart';
 import 'package:ngo_app/widgets_common/custom_radio.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';

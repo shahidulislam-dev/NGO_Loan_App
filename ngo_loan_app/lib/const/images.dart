@@ -14,8 +14,12 @@ const powerIcon = "assets/icons/Power.png";
 const takaIcon = "assets/icons/takaIcon.png";
 const idCardIcon = "assets/icons/IDCardIcon.png";
 const idCardBackIcon = "assets/icons/IdCardIconBack.png";
-const proofAddressImage = "assets/icons/proofAddressImage.png";
 const successIcon = "assets/icons/successIcon.png";
+const congratsIcon = "assets/icons/congratsIcon.png";
+const proofAddressImage = "assets/icons/proofAddressImage.png";
+const failedIcon = "assets/icons/faildIcon.png";
+
+//Images
 const firstWelcome = "assets/images/firstWelcome.jpeg";
 const secondWelcome = "assets/images/secondWelcome.png";
 const thirdWelcome = "assets/images/thirdWelcome.jpeg";

@@ -1,12 +1,15 @@
 import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
+import 'package:ngo_app/views/home/home.dart';
+import 'package:ngo_app/views/home/home_screen.dart';
 import 'package:ngo_app/views/loan_apply/loan_apply_screen/apply_for_loan_screen.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
+import 'package:ngo_app/widgets_common/custom_button_two.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 
-class KycCompletedScreen extends StatelessWidget {
-  const KycCompletedScreen({super.key});
+class FailedEligibilityScreen extends StatelessWidget {
+  const FailedEligibilityScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +74,7 @@ class KycCompletedScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(right: 58),
                             child: Image.asset(
-                              successIcon,
+                              failedIcon,
                               height: 300,
                             ),
                           ),
@@ -82,13 +85,30 @@ class KycCompletedScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 150),
                     const CustomText(
-                      "Wow! Your KYC is complete",
+                      "Sorry ! You are not eligible.",
                       size: 20,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                     ),
+                  const SizedBox(height: 20),
+                  const CustomText(
+                    "PLease try another loan or help loan",
+                    size: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+
                     const SizedBox(height: 150),
-                    customButton(onPressed: (){Get.to(const ApplyForLoanScreen());}, text: "Apply Loan")
+                    CustomButtonTwo(
+                        onPressed: (){
+                          Get.to(const Home());
+                        },
+                        buttonColor: Colors.white,
+                        text: "Back To Home",
+                      textColor: appPurpleColor,
+                      borderRadius: 8,
+                      height: 70,
+                    )
                   ],
                 ),
               ),
