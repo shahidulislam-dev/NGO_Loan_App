@@ -1,10 +1,7 @@
 import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
 import 'package:ngo_app/views/home/home.dart';
-import 'package:ngo_app/views/home/home_screen.dart';
-import 'package:ngo_app/views/loan_apply/loan_apply_screen/apply_for_loan_screen.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
-import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_button_two.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 
@@ -23,7 +20,9 @@ class FailedEligibilityScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: GestureDetector(
-                  onTap: (){Get.back();},
+                  onTap: () {
+                    Get.back();
+                  },
                   child: Container(
                     width: 40,
                     height: 40,
@@ -45,74 +44,69 @@ class FailedEligibilityScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
               const SizedBox(height: 40),
-
               Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Stack(
-                      clipBehavior: Clip.none,
-                      alignment: Alignment.center,
-                      children: [
-                        Container(
-                          width: 220,
-                          height: 220,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: appPurpleColor,
-                              width: 30,
-                            ),
-                            color: Colors.white,
-                          ),
-                        ),
-
-                        Positioned(
-                          top: 45,
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 58),
-                            child: Image.asset(
-                              failedIcon,
-                              height: 300,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Stack(
+                        clipBehavior: Clip.none,
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            width: 220,
+                            height: 220,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: appPurpleColor,
+                                width: 30,
+                              ),
+                              color: Colors.white,
                             ),
                           ),
-                        ),
-
-
-                      ],
-                    ),
-                    const SizedBox(height: 150),
-                    const CustomText(
-                      "Sorry ! You are not eligible.",
-                      size: 20,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  const SizedBox(height: 20),
-                  const CustomText(
-                    "PLease try another loan or help loan",
-                    size: 18,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                  ),
-
-                    const SizedBox(height: 150),
-                    CustomButtonTwo(
-                        onPressed: (){
+                          Positioned(
+                            top: 45,
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 58),
+                              child: Image.asset(
+                                failedIcon,
+                                height: 300,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 150),
+                      const CustomText(
+                        "Sorry ! You are not eligible.",
+                        size: 20,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(height: 20),
+                      const CustomText(
+                        "Please try another loan or help loan",
+                        size: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(height: 100),
+                      CustomButtonTwo(
+                        onPressed: () {
                           Get.to(const Home());
                         },
                         buttonColor: Colors.white,
                         text: "Back To Home",
-                      textColor: appPurpleColor,
-                      borderRadius: 8,
-                      height: 70,
-                    )
-                  ],
+                        textColor: appPurpleColor,
+                        borderRadius: 8,
+                        height: 70,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-
             ],
           ),
         ),
