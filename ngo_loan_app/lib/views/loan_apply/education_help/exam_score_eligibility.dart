@@ -2,8 +2,8 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/views/loan_apply/education_help/failed_eligibility_low_score.dart';
-import 'package:ngo_app/views/loan_apply/loan_apply_screen/failed_eligibility_screen.dart';
+import 'package:ngo_app/views/home/home.dart';
+import 'package:ngo_app/views/loan_apply/loan_apply_screen/apply_completed_screen.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button_two.dart';
 import 'package:ngo_app/widgets_common/custom_checkbox.dart';
@@ -11,7 +11,10 @@ import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/score_circle.dart';
 
 class ExamScoreEligibility extends StatelessWidget {
-  const ExamScoreEligibility({super.key});
+  final int score;
+  final int total;
+
+  const ExamScoreEligibility({super.key, required this.score, required this.total});
 
   @override
   Widget build(BuildContext context) {
@@ -51,19 +54,19 @@ class ExamScoreEligibility extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 10),
-                  const ScoreCircle(
-                    score: 21,
-                    total: 30,
+                  ScoreCircle(
+                    score: score,
+                    total: total,
                     progressColor: green,
                     backgroundColor: Colors.white,
                     size: 150,
-                    textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: Colors.white),
+                    textStyle: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: Colors.white),
                   ),
 
                   const SizedBox(height: 20),
-                  const CustomText("Your Qualify examination your score is 22/30", size: 14, fontWeight: FontWeight.w700, color: Colors.white, ),
+                  CustomText("Your Qualify examination your score is $score / $total", size: 14, fontWeight: FontWeight.w700, color: Colors.white, ),
                   const SizedBox(height: 15),
-                  const CustomText("22/30", size: 14, fontWeight: FontWeight.w700, color: Colors.white, ),
+                  CustomText("$score / $total", size: 14, fontWeight: FontWeight.w700, color: Colors.white, ),
                   const SizedBox(height: 5),
                   const CustomText("Congrats! You are eligible.", size: 18, fontWeight: FontWeight.w700, color: Colors.white, ),
                   const SizedBox(height: 15),
@@ -155,7 +158,7 @@ class ExamScoreEligibility extends StatelessWidget {
                   const SizedBox(height: 20),
                   CustomButtonTwo(
                     onPressed: () {
-
+                      Get.to(const ApplyCompletedScreen());
                     },
                     text: "Accept",
                     buttonColor: Colors.white,
@@ -169,7 +172,7 @@ class ExamScoreEligibility extends StatelessWidget {
                   const SizedBox(height: 20),
                   CustomButtonTwo(
                     onPressed: () {
-                      Get.to(const FailedEligibilityLowScore());
+                      Get.to(const Home());
                     },
                     text: "Decline",
                     gradient: gradientBackground,

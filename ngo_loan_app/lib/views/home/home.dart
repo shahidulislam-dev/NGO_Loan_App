@@ -6,6 +6,7 @@ import 'package:ngo_app/const/const.dart';
 import 'package:ngo_app/const/styles.dart';
 import 'package:ngo_app/views/donate_screen/donate_screen.dart';
 import 'package:ngo_app/views/home/home_screen.dart';
+import 'package:ngo_app/views/loan_history/loan_history_screen.dart';
 import 'package:ngo_app/views/profile_screen/profile_screen.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart'; // your CustomText
 
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
     const HomeScreen(),
     const ProfileScreen(),
     const DonateScreen(),
-    const HomeScreen(),
+    const LoanHistoryScreen(),
   ];
   DateTime? lastBackPressTime;
 
@@ -222,7 +223,7 @@ class _HomeState extends State<Home> {
                       ),
                       GButton(
                         icon: Icons.pie_chart,
-                        text: 'Charts',
+                        text: 'History',
                       ),
                     ],
                     selectedIndex: selectedIndex.value,

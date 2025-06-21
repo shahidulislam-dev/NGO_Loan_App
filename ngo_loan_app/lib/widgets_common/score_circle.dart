@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ngo_app/const/styles.dart';
 
 class ScoreCircle extends StatelessWidget {
-  final double score;
-  final double total;
+  final int score;
+  final int total;
   final double size;  // diameter of circle
   final Color backgroundColor;
   final Color progressColor;
@@ -23,7 +24,7 @@ class ScoreCircle extends StatelessWidget {
     double percent = (score / total).clamp(0.0, 1.0);
 
     // Use red if score is less than 70% of total
-    Color dynamicProgressColor = percent < 0.7 ? Colors.red : progressColor;
+    Color dynamicProgressColor = percent < 0.7 ? const Color(0xFFB90A0A) : progressColor;
 
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0.0, end: percent),
@@ -47,7 +48,9 @@ class ScoreCircle extends StatelessWidget {
               height: size - size * 0.1,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
+                boxShadow: [strongShadow],
                 color: Color(0xFFAE15CB),
+
               ),
               child: Center(
                 child: Text(

@@ -18,6 +18,7 @@ const successIcon = "assets/icons/successIcon.png";
 const congratsIcon = "assets/icons/congratsIcon.png";
 const proofAddressImage = "assets/icons/proofAddressImage.png";
 const failedIcon = "assets/icons/faildIcon.png";
+const completedIcon = "assets/icons/completedIcon.png";
 
 //Images
 const firstWelcome = "assets/images/firstWelcome.jpeg";

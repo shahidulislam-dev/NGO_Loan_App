@@ -11,6 +11,7 @@ class CustomButtonTwo extends StatelessWidget {
   final double borderRadius;
   final double fontSize;
   final FontWeight fontWeight;
+  final double? width; // ✅ New width parameter
 
   const CustomButtonTwo({
     super.key,
@@ -23,15 +24,16 @@ class CustomButtonTwo extends StatelessWidget {
     this.borderRadius = 12,
     this.fontSize = 16,
     this.fontWeight = FontWeight.w600,
+    this.width, // ✅ Optional width
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
+      width: width ?? double.infinity, // ✅ Use passed width if provided
       height: height,
       child: Material(
-        color: Colors.transparent, // Needed for Ink effects
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(borderRadius),
         child: InkWell(
           onTap: onPressed,
@@ -41,7 +43,6 @@ class CustomButtonTwo extends StatelessWidget {
               color: gradient == null ? buttonColor ?? Colors.blue : null,
               gradient: gradient,
               borderRadius: BorderRadius.circular(borderRadius),
-
             ),
             child: Center(
               child: CustomText(
@@ -57,4 +58,3 @@ class CustomButtonTwo extends StatelessWidget {
     );
   }
 }
-

@@ -7,7 +7,9 @@ import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/score_circle.dart';
 
 class FailedEligibilityLowScore extends StatelessWidget {
-  const FailedEligibilityLowScore({super.key});
+  final int score;
+  final int total;
+  const FailedEligibilityLowScore({super.key, required this.score, required this.total});
 
   @override
   Widget build(BuildContext context) {
@@ -52,19 +54,26 @@ class FailedEligibilityLowScore extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const ScoreCircle(
-                        score: 20,
-                        total: 30,
+                      ScoreCircle(
+                        score: score,
+                        total: total,
                         progressColor: green,
                         backgroundColor: Colors.white,
                         size: 150,
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(height: 70),
+                      const SizedBox(height: 50),
+                      const CustomText(
+                        "Oops! Your Score is very low.",
+                        size: 18,
+                        fontWeight: FontWeight.w700,
+                        color: red,
+                      ),
+                      const SizedBox(height: 20),
                       const CustomText(
                         "Sorry ! You are not eligible.",
                         size: 18,

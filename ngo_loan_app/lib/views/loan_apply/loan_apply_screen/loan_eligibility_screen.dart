@@ -2,6 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
+import 'package:ngo_app/views/loan_apply/loan_apply_screen/apply_completed_screen.dart';
 import 'package:ngo_app/views/loan_apply/loan_apply_screen/failed_eligibility_screen.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button_two.dart';
@@ -155,7 +156,7 @@ class LoanEligibilityScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 CustomButtonTwo(
                   onPressed: () {
-
+                    Get.to(const ApplyCompletedScreen());
                   },
                   text: "Accept",
                   buttonColor: Colors.white,
