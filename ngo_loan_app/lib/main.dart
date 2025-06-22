@@ -4,7 +4,8 @@ import 'package:ngo_app/const/const.dart';
 import 'package:ngo_app/views/splash_screen/splash_screen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized()
+  ;
 
 
   runApp(const MyApp());
