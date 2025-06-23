@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ngo_app/views/loan_apply/complete_kyc/kyc_completed_screen.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
-import '../../../const/colors.dart';
+
+import '../../../common/const/colors.dart';
 import 'personal_information.dart';
 import 'identity_documents.dart';
 import 'address_details.dart';
@@ -55,7 +56,7 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
               child: Container(
                 height: 4,
                 decoration: BoxDecoration(
-                  gradient: isCompletedOrCurrent ? gradientBackground : null,
+                  gradient: isCompletedOrCurrent ?  AppColors.gradientBackground : null,
                   color: isCompletedOrCurrent ? null : Colors.grey[300],
                   borderRadius: BorderRadius.circular(2),
                 ),
@@ -78,7 +79,7 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
                 height: size,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  gradient: (isCurrent || isCompleted) ? gradientBackground : null,
+                  gradient: (isCurrent || isCompleted) ?  AppColors.gradientBackground : null,
                   color: (isCurrent || isCompleted) ? null : Colors.grey[300],
                   boxShadow: (isCurrent || isCompleted)
                       ? [const BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2))]
@@ -108,7 +109,7 @@ class _CompleteKycScreenState extends State<CompleteKycScreen> {
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
-          color: darkGrey,
+          color:  AppColors.darkGrey,
         ),
         textAlign: TextAlign.center,
       ),

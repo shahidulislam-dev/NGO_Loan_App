@@ -1,9 +1,11 @@
-import 'package:ngo_app/const/const.dart';
+
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_radio.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/district_dropdown.dart';
+
+import '../../common/const/const.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -32,7 +34,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 child: CustomText(
                   "Edit Profile",
                   size: 20,
-                  color: darkGrey,
+                  color: AppColors.darkGrey,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -43,7 +45,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   width: 142,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: darkGrey, width: 2),
+                    border: Border.all(color: AppColors.darkGrey, width: 2),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.1),
@@ -63,7 +65,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const CustomText(
                 "Full Name",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               CustomTextfield(
@@ -75,7 +77,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const CustomText(
                 "Registered Number",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               CustomTextfield(
@@ -86,7 +88,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const CustomText(
                 "Alternate Number",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               CustomTextfield(
@@ -97,7 +99,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const CustomText(
                 "Email",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               CustomTextfield(
@@ -108,7 +110,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const CustomText(
                 "Date Of Birth",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               TextField(
@@ -141,7 +143,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const CustomText(
                 "Address",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               CustomTextfield(
@@ -152,7 +154,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const CustomText(
                 "Education Qualification",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               CustomTextfield(
@@ -163,7 +165,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               const CustomText(
                 "District",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               const DistrictDropdown(),
@@ -174,7 +176,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   const CustomText(
                     "Sex : ",
                     size: 16,
-                    color: darkGrey,
+                    color: AppColors.darkGrey,
                     fontWeight: FontWeight.w600, // semibold
                   ),
                   const SizedBox(width: 30),
@@ -183,7 +185,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     width: 16,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      gradient: gradientBackground,
+                      gradient: AppColors.gradientBackground,
                       border: Border.all(color: Colors.black, width: 2),
                     ),
                   ),
@@ -191,7 +193,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   const CustomText(
                     female,
                     size: 16,
-                    color: darkGrey,
+                    color: AppColors.darkGrey,
                     fontWeight: FontWeight.w600,
                   ),
                 ],
@@ -202,7 +204,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   const CustomText(
                     "Status : ",
                     size: 16,
-                    color: darkGrey,
+                    color: AppColors.darkGrey,
                     fontWeight: FontWeight.w600,
                   ),
                   customRadio("Married", maritalStatus, (val) {

@@ -1,11 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
+
 import 'package:ngo_app/views/loan_apply/complete_kyc/complet_kyc_screen.dart';
 import 'package:ngo_app/views/loan_apply/education_help/exam_screen.dart';
 import 'package:ngo_app/widgets_common/home_card.dart';
-import 'package:ngo_app/const/styles.dart';
+
 import 'package:ngo_app/widgets_common/custom_text.dart';
+
+import '../../common/const/const.dart';
+import '../../common/const/styles.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -121,10 +124,10 @@ class HomeScreen extends StatelessWidget {
               // Image with shadow, replicate VelocityX box.shadow.make()
               Container(
                 decoration: BoxDecoration(
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.25),
-                      offset: const Offset(0, 4),
+                      color: Colors.black,
+                      offset: Offset(0, 4),
                       blurRadius: 4,
                     ),
                   ],
@@ -139,18 +142,18 @@ class HomeScreen extends StatelessWidget {
               const CustomText(
                 "Empowering dreams through easy and affordable loans — your trusted NGO loan app for a brighter tomorrow.",
                 size: 15,
-                color: darkGrey,
+                color:  AppColors.darkGrey,
                 textAlign: TextAlign.center,
                 fontWeight: FontWeight.normal,
-                fontFamily: regular,
+                fontFamily: AppTextStyle.regular,
               ),
               const SizedBox(height: 15),
               Container(
                 decoration: BoxDecoration(
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.25),
-                      offset: const Offset(0, 4),
+                      color: Colors.black,
+                      offset: Offset(0, 4),
                       blurRadius: 4,
                     ),
                   ],

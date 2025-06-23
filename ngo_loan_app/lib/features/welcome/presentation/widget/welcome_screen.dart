@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../const/colors.dart';
+import '../../../../common/const/colors.dart';
+
+
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key, required this.imagePath, required this.textOne, required this.textTwo});
@@ -12,7 +14,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        gradient: gradientBackground, // Your gradient constant
+        gradient: AppColors.gradientBackground, // Your gradient constant
       ),
       child: Column(
         children: [
@@ -20,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
             height: 504,
             width: 424,
             decoration: const BoxDecoration(
-              color: white,
+              color: AppColors.white,
               boxShadow: [
                 BoxShadow(
                   color: Colors.black,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ngo_app/const/styles.dart';
+
+import '../common/const/styles.dart';
+
 
 class ScoreCircle extends StatelessWidget {
   final int score;
@@ -46,9 +48,9 @@ class ScoreCircle extends StatelessWidget {
             Container(
               width: size - size * 0.1,
               height: size - size * 0.1,
-              decoration: const BoxDecoration(
+              decoration:  BoxDecoration(
                 shape: BoxShape.circle,
-                boxShadow: [strongShadow],
+                ///boxShadow: AppTextStyle.strongShadow],
                 color: Color(0xFFAE15CB),
 
               ),

@@ -1,10 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
+
 import 'package:ngo_app/firebase_options.dart';
 
 import 'package:ngo_app/features/splash/presentation/screen/splash_screen.dart';
 
+import 'common/const/const.dart';
 import 'my_app.dart';
 
 void main() async {

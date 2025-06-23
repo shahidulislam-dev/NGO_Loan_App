@@ -1,6 +1,8 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:ngo_app/const/colors.dart';
+
+import '../common/const/colors.dart';
+
 
 class CustomDropdown extends StatefulWidget {
   final String hintText;
@@ -49,7 +51,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
                 item,
                 style: const TextStyle(
                   fontSize: 18,
-                  color: darkGrey,
+                  color: AppColors.darkGrey,
                 ),
               ),
             ),

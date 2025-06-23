@@ -2,7 +2,8 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:ngo_app/const/colors.dart';
+
+import '../common/const/colors.dart';
 import '../model/districts.dart';
 
 class DistrictDropdown extends StatefulWidget {
@@ -43,12 +44,12 @@ class _DistrictDropdownState extends State<DistrictDropdown> {
         padding: const EdgeInsets.only(left: 2.0),
         decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color: borderColor, width: 1.5),
+          border: Border.all(color: AppColors.borderColor, width: 1.5),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
           children: [
-            const Icon(Icons.location_on, color: iconColor, size: 30),
+            const Icon(Icons.location_on, color: AppColors.iconColor, size: 30),
             Expanded(
               child: DropdownButtonHideUnderline(
                 child: DropdownButton2<String>(
@@ -57,7 +58,7 @@ class _DistrictDropdownState extends State<DistrictDropdown> {
                     'Select a district',
                     style: TextStyle(
                       fontSize: 18,
-                      color: darkGrey,
+                      color: AppColors.darkGrey,
                     ),
                   ),
                   items: districtsList
@@ -67,7 +68,7 @@ class _DistrictDropdownState extends State<DistrictDropdown> {
                       item,
                       style: const TextStyle(
                         fontSize: 18,
-                        color: darkGrey,
+                        color: AppColors.darkGrey,
                       ),
                     ),
                   ))
@@ -86,7 +87,7 @@ class _DistrictDropdownState extends State<DistrictDropdown> {
                   dropdownStyleData: const DropdownStyleData(
                     maxHeight: 250,
                     decoration: BoxDecoration(
-                      color: white,
+                      color: AppColors.white,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(15.0),
                         bottomRight: Radius.circular(15.0),

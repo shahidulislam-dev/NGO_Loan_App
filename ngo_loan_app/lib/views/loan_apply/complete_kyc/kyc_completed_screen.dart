@@ -1,9 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
+
 import 'package:ngo_app/views/loan_apply/loan_apply_screen/apply_for_loan_screen.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
+
+import '../../../common/const/colors.dart';
+import '../../../common/const/images.dart';
 
 class KycCompletedScreen extends StatelessWidget {
   const KycCompletedScreen({super.key});
@@ -27,7 +31,7 @@ class KycCompletedScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: darkGrey,
+                        color:  AppColors.darkGrey,
                         width: 2,
                       ),
                       color: Colors.white,
@@ -36,7 +40,7 @@ class KycCompletedScreen extends StatelessWidget {
                       child: Icon(
                         Icons.arrow_back,
                         size: 30,
-                        color: darkGrey,
+                        color:  AppColors.darkGrey,
                       ),
                     ),
                   ),
@@ -59,7 +63,7 @@ class KycCompletedScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: appPurpleColor,
+                              color:  AppColors.appPurpleColor,
                               width: 30,
                             ),
                             color: Colors.white,

@@ -1,6 +1,7 @@
 
-import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/const/styles.dart';
+
+import '../common/const/const.dart';
+import '../common/const/styles.dart';
 
 Widget customRadio(String label, String groupValue, void Function(String) onChanged) {
   bool isSelected = label == groupValue;
@@ -14,7 +15,7 @@ Widget customRadio(String label, String groupValue, void Function(String) onChan
           width: 16,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            gradient: isSelected ? gradientBackground : null,
+            gradient: isSelected ? AppColors.gradientBackground : null,
             color: isSelected ? null : Colors.white,
             border: Border.all(color: Colors.black, width: 2),
           ),
@@ -24,8 +25,8 @@ Widget customRadio(String label, String groupValue, void Function(String) onChan
           label,
           style: const TextStyle(
             fontSize: 16,
-            color: darkGrey,
-            fontFamily: semibold,
+            color: AppColors.darkGrey,
+            fontFamily: AppTextStyle.semibold,
           ),
         ),
         const SizedBox(width: 20),

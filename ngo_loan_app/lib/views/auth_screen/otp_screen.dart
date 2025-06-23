@@ -1,13 +1,16 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/const/styles.dart';
+
 import 'package:ngo_app/views/home/home.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 
 // Import your CustomText widget here
 import 'package:ngo_app/widgets_common/custom_text.dart';
+
+import '../../common/const/const.dart';
+import '../../common/const/styles.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
@@ -37,7 +40,7 @@ class _OtpScreenState extends State<OtpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor: AppColors.white,
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -54,7 +57,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 const SizedBox(height: 20),
                 const CustomText(
                   verifyMobile,
-                  fontFamily: semibold,
+                  fontFamily: AppTextStyle.semibold,
                   fontWeight: FontWeight.w600,
                   size: 20,
                   color: Colors.black, // Or white if you want white text
@@ -62,35 +65,35 @@ class _OtpScreenState extends State<OtpScreen> {
                 const SizedBox(height: 30),
                 const CustomText(
                   verifyMsg,
-                  color: fontsLight,
-                  fontFamily: regular,
+                  color:  AppColors.fontsLight,
+                  fontFamily: AppTextStyle.regular,
                   fontWeight: FontWeight.w400,
                   size: 15,
                 ),
                 const SizedBox(height: 8),
                 const CustomText(
                   sampleNumber,
-                  fontFamily: bold,
+                  fontFamily: AppTextStyle.bold,
                   fontWeight: FontWeight.w400,
                   size: 15,
                 ),
                 const SizedBox(height: 30),
                 const CustomText(
                   enterOtpReq,
-                  fontFamily: bold,
+                  fontFamily: AppTextStyle.bold,
                   fontWeight: FontWeight.w400,
                   size: 15,
                 ),
                 const SizedBox(height: 20),
                 OtpTextField(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  fillColor: white,
+                  fillColor:  AppColors.white,
                   filled: true,
                   numberOfFields: 6,
-                  borderColor: borderColor,
+                  borderColor:  AppColors.borderColor,
                   showFieldAsBox: true,
                   onCodeChanged: (code) {
-                    print(code);
+                    log(code);
                   },
                 ),
                 const SizedBox(height: 20),
@@ -99,7 +102,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   children: [
                     const CustomText(
                       "Resend OTP",
-                      fontFamily: bold,
+                      fontFamily: AppTextStyle.bold,
                       fontWeight: FontWeight.w400,
                       size: 15,
                       color: Colors.black,
@@ -111,8 +114,8 @@ class _OtpScreenState extends State<OtpScreen> {
                       },
                       child: CustomText(
                         "00:$start",
-                        color: red,
-                        fontFamily: bold,
+                        color:  AppColors.red,
+                        fontFamily: AppTextStyle.bold,
                         fontWeight: FontWeight.w400,
                         size: 15,
                       ),
@@ -120,7 +123,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     const SizedBox(width: 5),
                     const CustomText(
                       "Sec",
-                      fontFamily: bold,
+                      fontFamily: AppTextStyle.bold,
                       fontWeight: FontWeight.w400,
                       size: 15,
                       color: Colors.black,

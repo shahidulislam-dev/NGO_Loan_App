@@ -1,12 +1,14 @@
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/const/styles.dart';
+
 import 'package:ngo_app/views/auth_screen/otp_screen.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
+
+import '../../common/const/const.dart';
+import '../../common/const/styles.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -48,10 +50,10 @@ class LoginScreen extends StatelessWidget {
                     loan,
                     style: TextStyle(
                       fontSize: 58,
-                      fontFamily: bold,
+                      fontFamily: AppTextStyle.bold,
                       fontWeight: FontWeight.w900,
                       height: 10.5 / 58,
-                      color: white,
+                      color: AppColors.white,
                     ),
                   ),
                 ),
@@ -64,9 +66,9 @@ class LoginScreen extends StatelessWidget {
                           signInto,
                           style: TextStyle(
                             fontSize: 24,
-                            fontFamily: regular,
+                            fontFamily: AppTextStyle.regular,
                             fontWeight: FontWeight.w600,
-                            color: white,
+                            color: AppColors.white,
                           ),
                         ),
                         const SizedBox(height: 20),
@@ -75,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 18,
-                            color: white,
+                            color: AppColors.white,
                           ),
                         ),
                         const SizedBox(height: 70),
@@ -84,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                           keyboardType: TextInputType.number,
                           hintText: mobileHint,
                           prefixIcon:
-                          const Icon(Icons.phone_in_talk, color: iconColor, size: 40),
+                          const Icon(Icons.phone_in_talk, color: AppColors.iconColor, size: 40),
                         ),
                         const SizedBox(height: 40),
                         customButton(
