@@ -2,14 +2,16 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:ngo_app/const/colors.dart';
-import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/const/styles.dart';
+
 import 'package:ngo_app/widgets_common/custom_dropdown.dart';
 import 'package:ngo_app/widgets_common/custom_image_container.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
 import 'package:ngo_app/widgets_common/district_dropdown.dart';
+
+import '../../../common/const/colors.dart';
+import '../../../common/const/images.dart';
+import '../../../common/const/styles.dart';
 
 class ProofOfAddress extends StatefulWidget {
   final TextEditingController controller;
@@ -53,7 +55,7 @@ class _ProofOfAddressState extends State<ProofOfAddress> {
           child: Column(
             children: [
               Container(
-                  decoration: const BoxDecoration(boxShadow: [commonShadow]),
+                  decoration: const BoxDecoration(boxShadow: [ AppTextStyle.commonShadow]),
                   child: Image.asset(identityDocumentImage)),
               const SizedBox(
                 height: 20,
@@ -61,7 +63,7 @@ class _ProofOfAddressState extends State<ProofOfAddress> {
               const CustomText(
                 "Upload Proof Of Address",
                 size: 24,
-                color: fontGrey,
+                color:  AppColors.fontGrey,
                 fontWeight: FontWeight.w600,
               ),
               const SizedBox(
@@ -70,7 +72,7 @@ class _ProofOfAddressState extends State<ProofOfAddress> {
               const CustomText(
                 "This will also help us identify that it is you running this account",
                 size: 18,
-                color: darkGrey,
+                color:  AppColors.darkGrey,
                 fontWeight: FontWeight.w400,
                 textAlign: TextAlign.center,
               ),
@@ -79,7 +81,7 @@ class _ProofOfAddressState extends State<ProofOfAddress> {
               const SizedBox(height: 20,),
               const DistrictDropdown(),
               const SizedBox(height: 20,),
-              const CustomText("Select Proof of Address Document type", size: 20, color: fontGrey, fontWeight: FontWeight.w400,),
+              const CustomText("Select Proof of Address Document type", size: 20, color:  AppColors.fontGrey, fontWeight: FontWeight.w400,),
               const SizedBox(height: 20,),
               CustomDropdown(
                 hintText: ' Select a Option',
@@ -94,7 +96,7 @@ class _ProofOfAddressState extends State<ProofOfAddress> {
               const SizedBox(height: 20,),
               CustomImageContainer(text: "Proof Of Address", icon: Image.asset(proofAddressImage), onTap: _pickAddressProofImage, height: 100, width: double.infinity, imageFile: addressProof,),
               const SizedBox(height: 10,),
-              const CustomText("Acceptable Utility Bill / Bank Statement must be within 6 months", size: 16, color: darkGrey, fontWeight:FontWeight.w400,)
+              const CustomText("Acceptable Utility Bill / Bank Statement must be within 6 months", size: 16, color:  AppColors.darkGrey, fontWeight:FontWeight.w400,)
             ],
           ),
         )

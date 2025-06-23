@@ -1,9 +1,11 @@
 
 import 'package:get/get.dart';
 import 'package:ngo_app/app_route.dart';
-import 'package:ngo_app/const/const.dart';
+
 import 'package:ngo_app/features/welcome/presentation/widget/welcome_screen.dart';
 import 'package:ngo_app/widgets_common/floatingButton.dart';
+
+import '../../../../common/const/const.dart';
 
 
 class SecondWelcomeScreen extends StatelessWidget {

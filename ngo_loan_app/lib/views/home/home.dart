@@ -2,13 +2,15 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/const/styles.dart';
+
 import 'package:ngo_app/views/donate_screen/donate_screen.dart';
 import 'package:ngo_app/views/home/home_screen.dart';
 import 'package:ngo_app/views/loan_history/loan_history_screen.dart';
 import 'package:ngo_app/views/profile_screen/profile_screen.dart';
-import 'package:ngo_app/widgets_common/custom_text.dart'; // your CustomText
+import 'package:ngo_app/widgets_common/custom_text.dart';
+
+import '../../common/const/const.dart';
+import '../../common/const/styles.dart'; // your CustomText
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -60,7 +62,7 @@ class _HomeState extends State<Home> {
                 width: 45,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: darkGrey, width: 2),
+                  border: Border.all(color:  AppColors.darkGrey, width: 2),
                   image: const DecorationImage(
                     image: AssetImage(profileImage),
                     fit: BoxFit.cover,
@@ -80,7 +82,7 @@ class _HomeState extends State<Home> {
                     "Good Morning",
                     size: 13,
                     fontWeight: FontWeight.w600,
-                    color: darkGrey,
+                    color:  AppColors.darkGrey,
                   ),
                 ],
               ),
@@ -97,7 +99,7 @@ class _HomeState extends State<Home> {
         ),
         drawer: Container(
           decoration: const BoxDecoration(
-            gradient: gradientBackground,
+            gradient:  AppColors.gradientBackground,
           ),
           child: Drawer(
             backgroundColor: Colors.transparent,
@@ -112,9 +114,9 @@ class _HomeState extends State<Home> {
                       const CustomText(
                         "NGO LOAN",
                         size: 40,
-                        color: white,
+                        color:  AppColors.white,
                         fontWeight: FontWeight.w900,
-                        fontFamily: bold,
+                        fontFamily: AppTextStyle.bold,
                       ),
                       Column(
                         children: List.generate(
@@ -123,14 +125,14 @@ class _HomeState extends State<Home> {
                             return ListTile(
                               leading: Icon(
                                 drawerIconList[index],
-                                color: white,
+                                color:  AppColors.white,
                                 size: 24,
                               ),
                               title: CustomText(
                                 drawerStringList[index],
                                 size: 20,
                                 fontWeight: FontWeight.bold,
-                                color: white,
+                                color:  AppColors.white,
                               ),
                               onTap: () {},
                             );
@@ -173,7 +175,7 @@ class _HomeState extends State<Home> {
         ),
         body: Obx(() => Column(
           children: [
-            Expanded(child: navScreens.elementAt(selectedIndex.value)),
+            ///Expanded(child: navScreens.elementAt(selectedIndex.value)),
           ],
         )),
         bottomNavigationBar: Obx(
@@ -200,13 +202,13 @@ class _HomeState extends State<Home> {
                     rippleColor: Colors.grey[300]!,
                     hoverColor: Colors.grey[100]!,
                     gap: 8,
-                    activeColor: white,
+                    activeColor:  AppColors.white,
                     iconSize: 24,
                     padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                     duration: const Duration(milliseconds: 400),
                     tabBackgroundColor: Colors.purple,
-                    color: darkGrey,
+                    color:  AppColors.darkGrey,
                     tabBorderRadius: 10.0,
                     tabs: const [
                       GButton(

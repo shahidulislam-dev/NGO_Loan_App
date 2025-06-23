@@ -1,10 +1,11 @@
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
 import 'package:ngo_app/views/loan_apply/loan_apply_screen/loan_eligibility_screen.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_radio.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
+
+import '../../../common/const/const.dart';
 
 class ApplyForLoanScreen extends StatefulWidget {
   const ApplyForLoanScreen({super.key});
@@ -25,7 +26,7 @@ class _ApplyForLoanScreenState extends State<ApplyForLoanScreen> {
           "Apply For Loan",
           size: 17,
           fontWeight: FontWeight.w700,
-          color: darkGrey,
+          color:  AppColors.darkGrey,
         ),
       ),
       body: Padding(
@@ -42,7 +43,7 @@ class _ApplyForLoanScreenState extends State<ApplyForLoanScreen> {
                     const CustomText(
                       "How much do you want to borrow?",
                       size: 16,
-                      color: darkGrey,
+                      color:  AppColors.darkGrey,
                     ),
                     const SizedBox(height: 10),
                     CustomTextfield(
@@ -60,7 +61,7 @@ class _ApplyForLoanScreenState extends State<ApplyForLoanScreen> {
                     const CustomText(
                       "Why are you want loan?",
                       size: 16,
-                      color: darkGrey,
+                      color:  AppColors.darkGrey,
                     ),
                     const SizedBox(height: 10),
                     CustomTextfield(
@@ -77,7 +78,7 @@ class _ApplyForLoanScreenState extends State<ApplyForLoanScreen> {
                     const CustomText(
                       "Have you any running loan?",
                       size: 16,
-                      color: darkGrey,
+                      color:  AppColors.darkGrey,
                     ),
                     const SizedBox(height: 15),
                     Padding(

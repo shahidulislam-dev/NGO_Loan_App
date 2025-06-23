@@ -1,5 +1,6 @@
-import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/const/styles.dart';
+
+import 'package:flutter/material.dart';
+import 'package:ngo_app/common/const/styles.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/loan_histor_container.dart';
@@ -41,7 +42,7 @@ class LoanHistoryScreen extends StatelessWidget {
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              boxShadow: const [strongShadow],
+                              boxShadow:  const [AppTextStyle.strongShadow],
                               borderRadius: BorderRadius.circular(30),
                             ),
                             child: Padding(

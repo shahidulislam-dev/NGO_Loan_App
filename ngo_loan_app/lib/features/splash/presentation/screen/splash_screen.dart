@@ -1,8 +1,10 @@
 // splash_screen.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
 
+
+import '../../../../common/const/colors.dart';
+import '../../../../common/const/images.dart';
 import '../../controller/splash_controller.dart';
 
 
@@ -16,7 +18,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          gradient: gradientBackground,
+          gradient: AppColors.gradientBackground,
         ),
         child: Stack(
           children: [

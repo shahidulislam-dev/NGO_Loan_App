@@ -1,7 +1,8 @@
 import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
+
 import 'package:ngo_app/views/home/home.dart';
 import 'package:ngo_app/views/loan_apply/loan_apply_screen/apply_completed_screen.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
@@ -9,6 +10,8 @@ import 'package:ngo_app/widgets_common/custom_button_two.dart';
 import 'package:ngo_app/widgets_common/custom_checkbox.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/score_circle.dart';
+
+import '../../../common/const/colors.dart';
 
 class ExamScoreEligibility extends StatelessWidget {
   final int score;
@@ -37,7 +40,7 @@ class ExamScoreEligibility extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: darkGrey,
+                            color:  AppColors.darkGrey,
                             width: 2,
                           ),
                           color: Colors.white,
@@ -46,7 +49,7 @@ class ExamScoreEligibility extends StatelessWidget {
                           child: Icon(
                             Icons.arrow_back,
                             size: 30,
-                            color: darkGrey,
+                            color:  AppColors.darkGrey,
                           ),
                         ),
                       ),
@@ -57,7 +60,7 @@ class ExamScoreEligibility extends StatelessWidget {
                   ScoreCircle(
                     score: score,
                     total: total,
-                    progressColor: green,
+                    progressColor:  AppColors.green,
                     backgroundColor: Colors.white,
                     size: 150,
                     textStyle: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: Colors.white),
@@ -78,7 +81,7 @@ class ExamScoreEligibility extends StatelessWidget {
                     child: Container(
                       height: 270,
                       width: double.infinity,
-                      color: appPurpleColor,
+                      color:  AppColors.appPurpleColor,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 25),
                         child: Column(
@@ -162,7 +165,7 @@ class ExamScoreEligibility extends StatelessWidget {
                     },
                     text: "Accept",
                     buttonColor: Colors.white,
-                    textColor: appPurpleColor,
+                    textColor:  AppColors.appPurpleColor,
                     height: 60,
                     borderRadius: 8,
                     fontSize: 18,
@@ -175,7 +178,7 @@ class ExamScoreEligibility extends StatelessWidget {
                       Get.to(const Home());
                     },
                     text: "Decline",
-                    gradient: gradientBackground,
+                    gradient:  AppColors.gradientBackground,
                     textColor: Colors.white,
                     height: 60,
                     borderRadius: 8,

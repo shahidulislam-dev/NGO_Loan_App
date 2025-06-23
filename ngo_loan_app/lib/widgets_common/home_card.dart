@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ngo_app/const/const.dart';
 
 Widget homeCard({
   required String icon,
