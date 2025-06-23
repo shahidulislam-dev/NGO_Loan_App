@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
 
 
       //translations: Language(),
-      fallbackLocale: Locale('en', "US"),
+      ///fallbackLocale: Locale('en', "US"),
       getPages: AppRoute.routes,
       //initialBinding: ControllerBinder(),
       themeMode: ThemeMode.light,

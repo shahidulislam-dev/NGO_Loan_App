@@ -1,9 +1,10 @@
 
 import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
+import 'package:ngo_app/features/welcome/presentation/widget/welcome_screen.dart';
 import 'package:ngo_app/views/auth_screen/registration_screen.dart';
 import 'package:ngo_app/widgets_common/floatingButton.dart';
-import 'package:ngo_app/widgets_common/welcome_screen.dart';
+
 
 class ThirdWelcomeScreen extends StatelessWidget {
   const ThirdWelcomeScreen({super.key});
@@ -17,10 +18,10 @@ class ThirdWelcomeScreen extends StatelessWidget {
         },
         child: floatingButton(), // Make sure this widget is also VelocityX-free
       ),
-      body: welcomeScreen(
+      body: const WelcomeScreen(
         imagePath: thirdWelcome,
-        text1: "No stress with payments",
-        text2: "and loan process",
+        textOne: "No stress with payments",
+        textTwo: "and loan process",
       ),
     );
   }

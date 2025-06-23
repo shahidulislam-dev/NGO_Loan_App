@@ -1,9 +1,11 @@
 
 import 'package:get/get.dart';
+import 'package:ngo_app/app_route.dart';
 import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/views/welcome_screens/second_welcome_screen.dart';
+import 'package:ngo_app/features/welcome/presentation/widget/welcome_screen.dart';
+import 'package:ngo_app/features/welcome/presentation/screen/second_welcome_screen.dart';
 import 'package:ngo_app/widgets_common/floatingButton.dart';
-import 'package:ngo_app/widgets_common/welcome_screen.dart';
+
 
 class FirstWelcomeScreen extends StatelessWidget {
   const FirstWelcomeScreen({super.key});
@@ -13,14 +15,14 @@ class FirstWelcomeScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: GestureDetector(
         onTap: () {
-          Get.to(const SecondWelcomeScreen());
+          Get.toNamed(AppRoute.welcomeTwo);
         },
         child: floatingButton(), // Assuming this returns a widget
       ),
-      body: welcomeScreen(
+      body: const WelcomeScreen(
         imagePath: firstWelcome,
-        text1: "Keep Smiling and meet your",
-        text2: "needs with quick Loans",
+        textOne: "Keep Smiling and meet your",
+        textTwo: "needs with quick Loans",
       ),
     );
   }
