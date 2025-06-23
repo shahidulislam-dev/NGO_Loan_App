@@ -13,7 +13,7 @@ class LoanHistoryScreen extends StatelessWidget {
     return Scaffold(
       body: bgWidget(
         child: Padding(
-            padding:const EdgeInsets.symmetric(vertical: 12),
+            padding:const EdgeInsets.only(top: 12),
           child: SingleChildScrollView(
             physics:const BouncingScrollPhysics(),
             child: Column(
@@ -23,7 +23,7 @@ class LoanHistoryScreen extends StatelessWidget {
                 const SizedBox(height: 70,),
                 Container(
                   width: double.infinity,
-                  height: 1000,
+                  height: MediaQuery.of(context).size.height * 1,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
