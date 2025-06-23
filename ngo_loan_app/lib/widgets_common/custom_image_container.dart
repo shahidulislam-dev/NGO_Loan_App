@@ -1,8 +1,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:ngo_app/const/colors.dart';
 
 import 'dart:io';
+
+import '../common/const/colors.dart';
 
 
 class CustomImageContainer extends StatelessWidget {
@@ -32,7 +33,7 @@ class CustomImageContainer extends StatelessWidget {
           dashPattern: [8, 4],
           strokeWidth: 2,
           radius: Radius.circular(12),
-          color: borderColor,
+          color: AppColors.borderColor,
           padding: EdgeInsets.all(16),
         ),
         child: SizedBox(
@@ -57,7 +58,7 @@ class CustomImageContainer extends StatelessWidget {
               text,
               style: const TextStyle(
                 fontSize: 18,
-                color: darkGrey,
+                color: AppColors.darkGrey,
                 fontWeight: FontWeight.w600,
               ),
             ),

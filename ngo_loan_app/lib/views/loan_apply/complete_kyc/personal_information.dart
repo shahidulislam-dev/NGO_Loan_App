@@ -1,8 +1,10 @@
 import 'package:flutter/gestures.dart';
-import 'package:ngo_app/const/const.dart';
+
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
-import 'package:ngo_app/widgets_common/custom_dropdown.dart'; // Make sure this import points to your CustomDropdown widget
+import 'package:ngo_app/widgets_common/custom_dropdown.dart';
+
+import '../../../common/const/const.dart'; // Make sure this import points to your CustomDropdown widget
 
 class PersonalInformation extends StatefulWidget {
   final TextEditingController controller;
@@ -47,13 +49,13 @@ class _PersonalInformationState extends State<PersonalInformation> {
               "Complete Your KYC",
               fontWeight: FontWeight.bold,
               size: 24,
-              color: darkGrey,
+              color:  AppColors.darkGrey,
             ),
             const SizedBox(height: 10),
             const CustomText(
               "For the purpose of industry regulation, your details are required.",
               fontWeight: FontWeight.w400,
-              color: darkGrey,
+              color:  AppColors.darkGrey,
               textAlign: TextAlign.center,
               size: 18,
             ),
@@ -213,20 +215,20 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 text: TextSpan(
                   style: const TextStyle(
                     fontSize: 16,
-                    color: darkGrey,
+                    color:  AppColors.darkGrey,
                     fontWeight: FontWeight.w500,
                   ),
                   children: [
                     const TextSpan(text: 'By continuing, you are acknowledging that you have read, understood and agreed to the KYC\'s '),
                     TextSpan(
                       text: 'Terms and Conditions',
-                      style: const TextStyle(color: darkBlue, fontWeight: FontWeight.bold),
+                      style: const TextStyle(color:  AppColors.darkBlue, fontWeight: FontWeight.bold),
                       recognizer: TapGestureRecognizer()..onTap = () {},
                     ),
                     const TextSpan(text: ' and '),
                     TextSpan(
                       text: 'Privacy Policy',
-                      style: const TextStyle(color: darkBlue, fontWeight: FontWeight.bold),
+                      style: const TextStyle(color:  AppColors.darkBlue, fontWeight: FontWeight.bold),
                       recognizer: TapGestureRecognizer()..onTap = () {},
                     ),
                     const TextSpan(text: '.'),

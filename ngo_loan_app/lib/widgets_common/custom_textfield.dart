@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ngo_app/const/colors.dart';
+
+import '../common/const/colors.dart';
+
 class CustomTextfield extends StatelessWidget {
   final TextEditingController controller;
   final TextInputType? keyboardType;
@@ -37,27 +39,27 @@ class CustomTextfield extends StatelessWidget {
         filled: true,
         fillColor: Colors.white,
         hintText: hintText,
-        hintStyle: const TextStyle(color: darkGrey, fontSize: 18) ,
+        hintStyle: const TextStyle(color: AppColors.darkGrey, fontSize: 18) ,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
           borderSide: const BorderSide(
-              color: borderColor,
+              color: AppColors.borderColor,
               width: 1.5
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
           borderSide: const BorderSide(
-              color: borderColor,
+              color: AppColors.borderColor,
               width: 1.5
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
           borderSide: const BorderSide(
-              color: borderColor,
+              color: AppColors.borderColor,
               width: 1.5
           ),
         ),

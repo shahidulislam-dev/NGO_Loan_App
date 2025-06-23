@@ -1,8 +1,10 @@
-import 'package:ngo_app/const/const.dart';
+
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
+
+import '../../common/const/const.dart';
 
 class DonateScreen extends StatelessWidget {
   const DonateScreen({super.key});
@@ -23,9 +25,9 @@ class DonateScreen extends StatelessWidget {
                   const SizedBox(height: 40,),
                   Image.asset(donateImage, height: 100,),
                   const SizedBox(height: 40,),
-                  CustomTextfield(controller: amountController, hintText: "Enter Amount", prefixIcon: const Icon(Icons.currency_pound, color: iconColor, size: 30,),),
+                  CustomTextfield(controller: amountController, hintText: "Enter Amount", prefixIcon: const Icon(Icons.currency_pound, color:  AppColors.iconColor, size: 30,),),
                   const SizedBox(height: 18,),
-                  CustomTextfield(controller: amountController, hintText: "Mobile Number", prefixIcon: const Icon(Icons.phone_in_talk, color: iconColor, size: 30,),),
+                  CustomTextfield(controller: amountController, hintText: "Mobile Number", prefixIcon: const Icon(Icons.phone_in_talk, color:  AppColors.iconColor, size: 30,),),
                   const SizedBox(height: 18,),
                   CustomTextfield(controller: amountController, hintText: "Enter Bank Account Number"),
                   const SizedBox(height: 18,),

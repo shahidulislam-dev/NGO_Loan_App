@@ -1,11 +1,13 @@
 import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
-import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/const/styles.dart';
+
 import 'package:ngo_app/widgets_common/custom_image_container.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
+
+import '../../../common/const/const.dart';
+import '../../../common/const/styles.dart';
 
 class IdentityDocuments extends StatefulWidget {
   final TextEditingController controller;
@@ -72,7 +74,7 @@ class _IdentityDocumentsState extends State<IdentityDocuments> {
           child: Column(
             children: [
               Container(
-                  decoration: const BoxDecoration(boxShadow: [commonShadow]),
+                  decoration: const BoxDecoration(boxShadow: [ AppTextStyle.commonShadow]),
                   child: Image.asset(identityDocumentImage)),
               const SizedBox(
                 height: 20,
@@ -80,7 +82,7 @@ class _IdentityDocumentsState extends State<IdentityDocuments> {
               const CustomText(
                 "Upload Identity Document",
                 size: 24,
-                color: fontGrey,
+                color:  AppColors.fontGrey,
                 fontWeight: FontWeight.w600,
               ),
               const SizedBox(
@@ -89,7 +91,7 @@ class _IdentityDocumentsState extends State<IdentityDocuments> {
               const CustomText(
                 "You can upload any Identity document from the options below, However some require front and back upload. This will help us identify that this is you!",
                 size: 18,
-                color: darkGrey,
+                color:  AppColors.darkGrey,
                 fontWeight: FontWeight.w400,
                 textAlign: TextAlign.center,
               ),
@@ -109,7 +111,7 @@ class _IdentityDocumentsState extends State<IdentityDocuments> {
               const CustomText(
                 "Or",
                 size: 24,
-                color: darkGrey,
+                color:  AppColors.darkGrey,
                 fontWeight: FontWeight.w800,
                 textAlign: TextAlign.center,
               ),
@@ -141,7 +143,7 @@ class _IdentityDocumentsState extends State<IdentityDocuments> {
               const CustomText(
                 "Upload Your Passport Photo",
                 size: 18,
-                color: darkGrey,
+                color:  AppColors.darkGrey,
                 fontWeight: FontWeight.w800,
                 textAlign: TextAlign.center,
               ),
@@ -153,7 +155,7 @@ class _IdentityDocumentsState extends State<IdentityDocuments> {
                   width: 200,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(width: 2.0, color: borderColor),
+                    border: Border.all(width: 2.0, color:  AppColors.borderColor),
                     color: Colors.black12,
                   ),
                   child: ClipRRect(

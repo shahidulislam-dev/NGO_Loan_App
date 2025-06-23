@@ -1,10 +1,11 @@
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
 import 'package:ngo_app/views/home/home.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button_two.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/score_circle.dart';
+
+import '../../../common/const/const.dart';
 
 class FailedEligibilityLowScore extends StatelessWidget {
   final int score;
@@ -33,7 +34,7 @@ class FailedEligibilityLowScore extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: darkGrey,
+                        color:  AppColors.darkGrey,
                         width: 2,
                       ),
                       color: Colors.white,
@@ -42,7 +43,7 @@ class FailedEligibilityLowScore extends StatelessWidget {
                       child: Icon(
                         Icons.arrow_back,
                         size: 30,
-                        color: darkGrey,
+                        color:  AppColors.darkGrey,
                       ),
                     ),
                   ),
@@ -57,7 +58,7 @@ class FailedEligibilityLowScore extends StatelessWidget {
                       ScoreCircle(
                         score: score,
                         total: total,
-                        progressColor: green,
+                        progressColor:  AppColors.green,
                         backgroundColor: Colors.white,
                         size: 150,
                         textStyle: const TextStyle(
@@ -71,7 +72,7 @@ class FailedEligibilityLowScore extends StatelessWidget {
                         "Oops! Your Score is very low.",
                         size: 18,
                         fontWeight: FontWeight.w700,
-                        color: red,
+                        color:  AppColors.red,
                       ),
                       const SizedBox(height: 20),
                       const CustomText(
@@ -91,7 +92,7 @@ class FailedEligibilityLowScore extends StatelessWidget {
                       CustomButtonTwo(
                         onPressed: () {Get.to(const Home());},
                         text: "Back To Home",
-                        textColor: appPurpleColor,
+                        textColor:  AppColors.appPurpleColor,
                         buttonColor: Colors.white,
                         height: 60,
                         borderRadius: 8,

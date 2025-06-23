@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/const/styles.dart';
+
 import 'package:ngo_app/views/auth_screen/login_screen.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
@@ -11,6 +10,9 @@ import 'package:ngo_app/widgets_common/custom_textfield.dart';
 
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/district_dropdown.dart';
+
+import '../../common/const/const.dart';
+import '../../common/const/styles.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -37,38 +39,38 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   child: CustomText(
                     loan,
                     size: 58,
-                    fontFamily: bold,
+                    fontFamily: AppTextStyle.bold,
                     fontWeight: FontWeight.w900,
-                    color: white,
+                    color:  AppColors.white,
                   ),
                 ),
                 const SizedBox(height: 40),
                 const CustomText(
                   register,
                   size: 24,
-                  fontFamily: regular,
+                  fontFamily: AppTextStyle.regular,
                   fontWeight: FontWeight.w600,
-                  color: white,
+                  color:  AppColors.white,
                 ),
                 const SizedBox(height: 20),
                 const CustomText(
                   registerMsg,
                   size: 18,
-                  color: white,
+                  color:  AppColors.white,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20),
                 CustomTextfield(
                   controller: nameController,
                   hintText: nameHint,
-                  prefixIcon: const Icon(Icons.person, color: iconColor, size: 40),
+                  prefixIcon: const Icon(Icons.person, color:  AppColors.iconColor, size: 40),
                 ),
                 const SizedBox(height: 20),
                 CustomTextfield(
                   controller: nameController,
                   keyboardType: TextInputType.number,
                   hintText: mobileHint,
-                  prefixIcon: const Icon(Icons.phone_in_talk, color: iconColor, size: 40),
+                  prefixIcon: const Icon(Icons.phone_in_talk, color:  AppColors.iconColor, size: 40),
                 ),
                 const SizedBox(height: 20),
                 const DistrictDropdown(),
@@ -82,8 +84,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         alignment: Alignment.centerLeft,
                         child: CustomText(
                           gender,
-                          color: white,
-                          fontFamily: regular,
+                          color:  AppColors.white,
+                          fontFamily: AppTextStyle.regular,
                           size: 20,
                         ),
                       ),
@@ -93,15 +95,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         width: 20,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
-                          gradient: gradientBackground,
-                          border: Border.all(color: white, width: 2),
+                          gradient:  AppColors.gradientBackground,
+                          border: Border.all(color:  AppColors.white, width: 2),
                         ),
                       ),
                       const SizedBox(width: 10),
                       const CustomText(
                         female,
-                        color: white,
-                        fontFamily: semibold,
+                        color:  AppColors.white,
+                        fontFamily: AppTextStyle.semibold,
                         size: 20,
                       ),
                     ],

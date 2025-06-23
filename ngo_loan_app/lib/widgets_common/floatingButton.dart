@@ -1,5 +1,5 @@
 
-import 'package:ngo_app/const/const.dart';
+import '../common/const/const.dart';
 
 Widget floatingButton() {
     return Stack(
@@ -8,7 +8,7 @@ Widget floatingButton() {
           width: 75,
           height: 75,
           decoration: BoxDecoration(
-            gradient: gradientBackground,
+            gradient:AppColors.gradientBackground,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color: Colors.white,

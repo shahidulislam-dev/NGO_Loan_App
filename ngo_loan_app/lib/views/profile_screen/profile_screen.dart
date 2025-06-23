@@ -1,11 +1,13 @@
 
 import 'package:get/get.dart';
-import 'package:ngo_app/const/const.dart';
+
 import 'package:ngo_app/views/auth_screen/login_screen.dart';
 import 'package:ngo_app/views/profile_screen/edit_profile_screen.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
+
+import '../../common/const/const.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -29,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
                   width: 142,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: darkGrey, width: 2),
+                    border: Border.all(color: AppColors.darkGrey, width: 2),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.1),
@@ -50,7 +52,7 @@ class ProfileScreen extends StatelessWidget {
                 child: CustomText(
                   "Gokul Kumari",
                   size: 20,
-                  color: darkGrey,
+                  color: AppColors.darkGrey,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -58,7 +60,7 @@ class ProfileScreen extends StatelessWidget {
               const CustomText(
                 "Full Name",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               CustomTextfield(
@@ -70,7 +72,7 @@ class ProfileScreen extends StatelessWidget {
               const CustomText(
                 "Registered Number",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               CustomTextfield(
@@ -82,7 +84,7 @@ class ProfileScreen extends StatelessWidget {
               const CustomText(
                 "District",
                 size: 15,
-                color: darkGrey,
+                color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
               CustomTextfield(

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ngo_app/const/colors.dart';
+
 import 'package:ngo_app/views/loan_apply/education_help/exam_score_eligibility.dart';
 import 'package:ngo_app/views/loan_apply/education_help/failed_eligibility_low_score.dart';
 import 'package:ngo_app/widgets_common/custom_button_two.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
+
+import '../../../common/const/colors.dart';
 
 class LoanExamScreen extends StatefulWidget {
   const LoanExamScreen({super.key});
@@ -73,7 +75,7 @@ class _LoanExamScreenState extends State<LoanExamScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const CustomText("Exam", size: 24, fontWeight: FontWeight.w700, color: darkGrey),
+        title: const CustomText("Exam", size: 24, fontWeight: FontWeight.w700, color:  AppColors.darkGrey),
         centerTitle: true,
       ),
       body: Padding(
@@ -89,7 +91,7 @@ class _LoanExamScreenState extends State<LoanExamScreen> {
               borderRadius: BorderRadius.circular(8),
             ),
             const SizedBox(height: 20),
-            CustomText("${(percent * 100).toInt()}% Completed", size: 18, color: darkGrey),
+            CustomText("${(percent * 100).toInt()}% Completed", size: 18, color:  AppColors.darkGrey),
             const SizedBox(height: 53),
             Align(
               alignment: Alignment.centerLeft,
@@ -97,7 +99,7 @@ class _LoanExamScreenState extends State<LoanExamScreen> {
                 question.questionText,
                 size: 18,
                 fontWeight: FontWeight.w500,
-                color: darkGrey,
+                color:  AppColors.darkGrey,
               ),
             ),
             const SizedBox(height: 20),
@@ -134,7 +136,7 @@ class _LoanExamScreenState extends State<LoanExamScreen> {
                         child: CustomText(
                           question.options[index],
                           size: 18,
-                          color: darkGrey,
+                          color:  AppColors.darkGrey,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -174,7 +176,7 @@ class _LoanExamScreenState extends State<LoanExamScreen> {
                 CustomButtonTwo(
                   onPressed: previousQuestion,
                   text: "Preview",
-                  gradient: gradientBackground,
+                  gradient:  AppColors.gradientBackground,
                   textColor: Colors.white,
                   fontSize: 16,
                   height: 60,
@@ -183,7 +185,7 @@ class _LoanExamScreenState extends State<LoanExamScreen> {
                 CustomButtonTwo(
                   onPressed: nextQuestion,
                   text: currentIndex == questions.length - 1 ? "Finish" : "Continue",
-                  gradient: gradientBackground,
+                  gradient:  AppColors.gradientBackground,
                   textColor: Colors.white,
                   fontSize: 16,
                   height: 60,

@@ -1,4 +1,6 @@
-import 'package:ngo_app/const/const.dart';
+
+
+import '../common/const/const.dart';
 
 Widget customButton({required VoidCallback? onPressed, required String text}) {
   return Container(
@@ -22,7 +24,7 @@ Widget customButton({required VoidCallback? onPressed, required String text}) {
       ),
       child: Ink(
         decoration: BoxDecoration(
-          gradient: gradientBackground,
+          gradient: AppColors.gradientBackground,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: Colors.white,

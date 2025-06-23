@@ -1,10 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:ngo_app/const/const.dart';
+
 import 'package:ngo_app/widgets_common/custom_checkbox.dart';
-import 'package:ngo_app/widgets_common/custom_dropdown.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
+
+import '../../../common/const/colors.dart';
+import '../../../common/const/images.dart';
 
 class AddressDetails extends StatelessWidget {
   final TextEditingController controller;
@@ -30,13 +32,13 @@ class AddressDetails extends StatelessWidget {
               "Complete Your Address Details",
               fontWeight: FontWeight.bold,
               size: 24,
-              color: darkGrey,
+              color:  AppColors.darkGrey,
             ),
             const SizedBox(height: 10),
             const CustomText(
               "For the purpose of industry regulation, your address details are required.",
               fontWeight: FontWeight.w400,
-              color: darkGrey,
+              color:  AppColors.darkGrey,
               textAlign: TextAlign.center,
               size: 18,
             ),
@@ -46,7 +48,7 @@ class AddressDetails extends StatelessWidget {
               child: CustomText(
                 "Present Address",
                 fontWeight: FontWeight.w800,
-                color: darkGrey,
+                color:  AppColors.darkGrey,
                 textAlign: TextAlign.start,
                 size: 20,
               ),
@@ -99,14 +101,14 @@ class AddressDetails extends StatelessWidget {
               child: CustomText(
                 "Permanent Address",
                 fontWeight: FontWeight.w800,
-                color: darkGrey,
+                color:  AppColors.darkGrey,
                 textAlign: TextAlign.start,
                 size: 20,
               ),
             ),
             const SizedBox(height: 10,),
 
-             const CustomCheckbox(labelText: "Same As Present Address?", textColor: darkGrey,),
+             const CustomCheckbox(labelText: "Same As Present Address?", textColor:  AppColors.darkGrey,),
 
             const SizedBox(height: 20),
             CustomTextfield(
@@ -158,20 +160,20 @@ class AddressDetails extends StatelessWidget {
                 text: TextSpan(
                   style: const TextStyle(
                     fontSize: 16,
-                    color: darkGrey,
+                    color:  AppColors.darkGrey,
                     fontWeight: FontWeight.w500,
                   ),
                   children: [
                     const TextSpan(text: 'By continuing, you are acknowledging that you have read, understood and agreed to the KYC\'s '),
                     TextSpan(
                       text: 'Terms and Conditions',
-                      style: const TextStyle(color: darkBlue, fontWeight: FontWeight.bold),
+                      style: const TextStyle(color:  AppColors.darkBlue, fontWeight: FontWeight.bold),
                       recognizer: TapGestureRecognizer()..onTap = () {},
                     ),
                     const TextSpan(text: ' and '),
                     TextSpan(
                       text: 'Privacy Policy',
-                      style: const TextStyle(color: darkBlue, fontWeight: FontWeight.bold),
+                      style: const TextStyle(color:  AppColors.darkBlue, fontWeight: FontWeight.bold),
                       recognizer: TapGestureRecognizer()..onTap = () {},
                     ),
                     const TextSpan(text: '.'),
