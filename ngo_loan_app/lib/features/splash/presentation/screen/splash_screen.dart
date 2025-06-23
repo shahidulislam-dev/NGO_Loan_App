@@ -1,22 +1,14 @@
+// splash_screen.dart
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
-import 'package:ngo_app/views/welcome_screens/first_welcome_screen.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+import '../../controller/splash_controller.dart';
 
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
 
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-
-    Future.delayed(const Duration(seconds: 5), () {
-      Get.off(() => const FirstWelcomeScreen());
-    });
+class SplashScreen extends StatelessWidget {
+  SplashScreen({super.key}) {
+    Get.put(SplashController());
   }
 
   @override
@@ -24,11 +16,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          gradient: gradientBackground, // Your gradient constant
+          gradient: gradientBackground,
         ),
         child: Stack(
           children: [
-            // Top House Image
             Positioned(
               left: -125,
               top: 15,
@@ -41,8 +32,6 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
-
-            // Center Splash Image (rotated)
             Align(
               alignment: Alignment.center,
               child: Transform.rotate(
@@ -54,8 +43,6 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
-
-            // Bottom House Image
             Positioned(
               left: 286,
               top: 625,
@@ -68,8 +55,6 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
-
-            // Text at bottom
             const Positioned(
               bottom: 70,
               left: 0,
@@ -80,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 55,
-                    height: 10.5 / 55, // line height as in your VelocityX
+                    height: 10.5 / 55,
                     fontWeight: FontWeight.w900,
                   ),
                 ),

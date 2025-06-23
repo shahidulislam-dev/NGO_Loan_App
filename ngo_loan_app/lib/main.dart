@@ -1,16 +1,21 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
+import 'package:ngo_app/firebase_options.dart';
 
-import 'package:ngo_app/views/splash_screen/splash_screen.dart';
+import 'package:ngo_app/features/splash/presentation/screen/splash_screen.dart';
+
+import 'my_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
 
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+/*class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -26,6 +31,6 @@ class MyApp extends StatelessWidget {
       home:  const SplashScreen(),
     );
   }
-}
+}*/
 
 
