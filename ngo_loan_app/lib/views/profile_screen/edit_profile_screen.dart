@@ -168,7 +168,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 color: AppColors.darkGrey,
               ),
               const SizedBox(height: 10),
-              const DistrictDropdown(),
+               DistrictDropdown(),
               const SizedBox(height: 10),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

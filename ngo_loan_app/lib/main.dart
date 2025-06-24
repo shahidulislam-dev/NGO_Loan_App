@@ -1,16 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:get/get.dart';
 
 import 'package:ngo_app/firebase_options.dart';
 
-import 'package:ngo_app/features/splash/presentation/screen/splash_screen.dart';
+
 
 import 'common/const/const.dart';
+import 'common/service/session_service.dart';
 import 'my_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await SessionService.init();
 
 
   runApp(const MyApp());

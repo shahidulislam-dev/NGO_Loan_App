@@ -1,13 +1,13 @@
 
 import 'package:get/get.dart';
 
-import 'package:ngo_app/views/auth_screen/login_screen.dart';
 import 'package:ngo_app/views/profile_screen/edit_profile_screen.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 
 import '../../common/const/const.dart';
+import '../../features/authentication/presentation/screen/login_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -102,7 +102,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 20),
               customButton(
                 onPressed: () {
-                  Get.to(const LoginScreen());
+                  Get.to(LoginScreen());
                 },
                 text: "Logout",
               ),

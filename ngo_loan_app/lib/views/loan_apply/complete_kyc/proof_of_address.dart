@@ -79,7 +79,7 @@ class _ProofOfAddressState extends State<ProofOfAddress> {
               const SizedBox(height: 20,),
               CustomTextfield(controller:widget.controller, hintText: "Residential Address"),
               const SizedBox(height: 20,),
-              const DistrictDropdown(),
+               DistrictDropdown(),
               const SizedBox(height: 20,),
               const CustomText("Select Proof of Address Document type", size: 20, color:  AppColors.fontGrey, fontWeight: FontWeight.w400,),
               const SizedBox(height: 20,),
