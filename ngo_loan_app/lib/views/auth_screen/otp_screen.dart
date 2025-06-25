@@ -2,8 +2,9 @@ import 'dart:async';
 import 'dart:developer';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
+import 'package:ngo_app/features/navbar/presentation/nav_bar.dart';
 
-import 'package:ngo_app/views/home/home.dart';
+
 import 'package:ngo_app/widgets_common/custom_button.dart';
 
 // Import your CustomText widget here
@@ -138,7 +139,7 @@ class _OtpScreenState extends State<OtpScreen> {
               right: 8,
               child: customButton(
                 onPressed: () {
-                  Get.to(const Home());
+                  Get.to(NavBar());
                 },
                 text: "Next",
               ),

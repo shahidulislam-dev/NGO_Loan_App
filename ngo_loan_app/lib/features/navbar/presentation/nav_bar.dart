@@ -1,34 +1,37 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
+import 'package:ngo_app/features/profile/controller/profile_controller.dart';
 import 'package:ngo_app/views/donate_screen/donate_screen.dart';
-import 'package:ngo_app/views/home/home_screen.dart';
+
 import 'package:ngo_app/views/loan_history/loan_history_screen.dart';
-import 'package:ngo_app/views/profile_screen/profile_screen.dart';
+
 import 'package:ngo_app/widgets_common/custom_text.dart';
 
-import '../../common/const/const.dart';
-import '../../common/const/styles.dart'; // your CustomText
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+import '../../../common/const/colors.dart';
+import '../../../common/const/images.dart';
+import '../../../common/const/lists.dart';
+import '../../../common/const/styles.dart';
+import '../../home/presentation/screen/home_screen.dart';
+import '../../profile/presentation/screen/profile_screen.dart';
+import '../controller/nav_controller.dart';
 
-  @override
-  State<Home> createState() => _HomeState();
-}
+class NavBar extends StatelessWidget {
+  NavBar({super.key});
+  static const String routeName = "/navBar";
 
-class _HomeState extends State<Home> {
-  var selectedIndex = 0.obs;
+  final NavController controller = Get.put(NavController());
+  final ProfileController profileController = Get.find<ProfileController>();
 
-  var navScreens = [
-    const HomeScreen(),
-    const ProfileScreen(),
+  final List<Widget> navScreens =  [
+    HomeScreen(),
+     ProfileScreen(),
     const DonateScreen(),
     const LoanHistoryScreen(),
   ];
-  DateTime? lastBackPressTime;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +39,9 @@ class _HomeState extends State<Home> {
       canPop: false,
       onPopInvoked: (didPop) async {
         if (!didPop) {
-          DateTime now = DateTime.now();
-          if (lastBackPressTime == null ||
-              now.difference(lastBackPressTime!) > const Duration(seconds: 2)) {
-            lastBackPressTime = now;
-
+          if (controller.shouldExitApp()) {
+            SystemNavigator.pop();
+          } else {
             Fluttertoast.showToast(
               msg: "Press back again to exit",
               toastLength: Toast.LENGTH_SHORT,
@@ -48,8 +49,6 @@ class _HomeState extends State<Home> {
               backgroundColor: Colors.black87,
               textColor: Colors.white,
             );
-          } else {
-            SystemNavigator.pop(); // Exit the app
           }
         }
       },
@@ -62,7 +61,7 @@ class _HomeState extends State<Home> {
                 width: 45,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color:  AppColors.darkGrey, width: 2),
+                  border: Border.all(color: AppColors.darkGrey, width: 2),
                   image: const DecorationImage(
                     image: AssetImage(profileImage),
                     fit: BoxFit.cover,
@@ -70,19 +69,20 @@ class _HomeState extends State<Home> {
                 ),
               ),
               const SizedBox(width: 10),
-              const Column(
+               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomText(
-                    "Gokul Kumari",
-                    size: 17,
-                    fontWeight: FontWeight.bold,
+                  Obx(()=> CustomText(
+                      "${profileController.userData['full_name']??''}",
+                      size: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  CustomText(
+                  const CustomText(
                     "Good Morning",
                     size: 13,
                     fontWeight: FontWeight.w600,
-                    color:  AppColors.darkGrey,
+                    color: AppColors.darkGrey,
                   ),
                 ],
               ),
@@ -91,15 +91,13 @@ class _HomeState extends State<Home> {
           leading: Builder(
             builder: (context) => IconButton(
               icon: const Icon(Icons.menu, size: 40),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
+              onPressed: () => Scaffold.of(context).openDrawer(),
             ),
           ),
         ),
         drawer: Container(
           decoration: const BoxDecoration(
-            gradient:  AppColors.gradientBackground,
+            gradient: AppColors.gradientBackground,
           ),
           child: Drawer(
             backgroundColor: Colors.transparent,
@@ -110,11 +108,11 @@ class _HomeState extends State<Home> {
                   child: ListView(
                     padding: EdgeInsets.zero,
                     children: [
-                      const SizedBox(height: 40), // replaced 40.heightBox
+                      const SizedBox(height: 40),
                       const CustomText(
                         "NGO LOAN",
                         size: 40,
-                        color:  AppColors.white,
+                        color: AppColors.white,
                         fontWeight: FontWeight.w900,
                         fontFamily: AppTextStyle.bold,
                       ),
@@ -125,14 +123,14 @@ class _HomeState extends State<Home> {
                             return ListTile(
                               leading: Icon(
                                 drawerIconList[index],
-                                color:  AppColors.white,
+                                color: AppColors.white,
                                 size: 24,
                               ),
                               title: CustomText(
                                 drawerStringList[index],
                                 size: 20,
                                 fontWeight: FontWeight.bold,
-                                color:  AppColors.white,
+                                color: AppColors.white,
                               ),
                               onTap: () {},
                             );
@@ -147,7 +145,7 @@ class _HomeState extends State<Home> {
                   right: 20,
                   child: Container(
                     height: 55,
-                    width: 55, // to keep circle shape
+                    width: 55,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -173,11 +171,7 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        body: Obx(() => Column(
-          children: [
-            ///Expanded(child: navScreens.elementAt(selectedIndex.value)),
-          ],
-        )),
+        body: Obx(() => navScreens[controller.selectedIndex.value]),
         bottomNavigationBar: Obx(
               () => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -197,41 +191,27 @@ class _HomeState extends State<Home> {
               child: SafeArea(
                 child: Padding(
                   padding:
-                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
+                  const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                   child: GNav(
                     rippleColor: Colors.grey[300]!,
                     hoverColor: Colors.grey[100]!,
                     gap: 8,
-                    activeColor:  AppColors.white,
+                    activeColor: AppColors.white,
                     iconSize: 24,
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 12),
                     duration: const Duration(milliseconds: 400),
                     tabBackgroundColor: Colors.purple,
-                    color:  AppColors.darkGrey,
+                    color: AppColors.darkGrey,
                     tabBorderRadius: 10.0,
                     tabs: const [
-                      GButton(
-                        icon: Icons.home,
-                        text: 'Home',
-                      ),
-                      GButton(
-                        icon: Icons.person,
-                        text: 'Profile',
-                      ),
-                      GButton(
-                        icon: Icons.card_giftcard,
-                        text: 'Donation',
-                      ),
-                      GButton(
-                        icon: Icons.pie_chart,
-                        text: 'History',
-                      ),
+                      GButton(icon: Icons.home, text: 'Home'),
+                      GButton(icon: Icons.person, text: 'Profile'),
+                      GButton(icon: Icons.card_giftcard, text: 'Donation'),
+                      GButton(icon: Icons.pie_chart, text: 'History'),
                     ],
-                    selectedIndex: selectedIndex.value,
-                    onTabChange: (index) {
-                      selectedIndex.value = index;
-                    },
+                    selectedIndex: controller.selectedIndex.value,
+                    onTabChange: controller.updateTab,
                   ),
                 ),
               ),
@@ -242,3 +222,6 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+
+
