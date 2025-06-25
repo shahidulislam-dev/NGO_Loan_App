@@ -2,8 +2,8 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
+import 'package:ngo_app/features/navbar/presentation/nav_bar.dart';
 
-import 'package:ngo_app/views/home/home.dart';
 import 'package:ngo_app/views/loan_apply/loan_apply_screen/apply_completed_screen.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button_two.dart';
@@ -175,7 +175,7 @@ class ExamScoreEligibility extends StatelessWidget {
                   const SizedBox(height: 20),
                   CustomButtonTwo(
                     onPressed: () {
-                      Get.to(const Home());
+                      Get.to(NavBar());
                     },
                     text: "Decline",
                     gradient:  AppColors.gradientBackground,
