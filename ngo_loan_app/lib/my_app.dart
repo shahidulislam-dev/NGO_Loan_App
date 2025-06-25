@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'app_route.dart';
+import 'common/binding/controller_binder.dart';
 
 
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       //translations: Language(),
       ///fallbackLocale: Locale('en', "US"),
       getPages: AppRoute.routes,
-      //initialBinding: ControllerBinder(),
+      initialBinding: ControllerBinder(),
       themeMode: ThemeMode.light,
       //theme: AppTheme.lightTheme,
     );
