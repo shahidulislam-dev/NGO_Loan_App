@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../common/const/colors.dart';
 import '../../../../common/const/images.dart';
-import '../../../authentication/presentation/screen/login_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
