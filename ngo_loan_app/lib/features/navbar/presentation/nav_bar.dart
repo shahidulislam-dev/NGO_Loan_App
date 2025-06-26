@@ -62,12 +62,22 @@ class NavBar extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: AppColors.darkGrey, width: 2),
-                  image: const DecorationImage(
-                    image: AssetImage(profileImage),
-                    fit: BoxFit.cover,
+                ),
+                child: Obx(()=>
+                   ClipOval(
+                    child: profileController.userData['image'] != null
+                        ? Image.network(
+                      profileController.userData['image'],
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Image.asset(profileImage, fit: BoxFit.cover);
+                      },
+                    )
+                        : Image.asset(profileImage, fit: BoxFit.cover),
                   ),
                 ),
               ),
+
               const SizedBox(width: 10),
                Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,26 +153,31 @@ class NavBar extends StatelessWidget {
                 Positioned(
                   bottom: 20,
                   right: 20,
-                  child: Container(
-                    height: 55,
-                    width: 55,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 3,
-                          blurRadius: 6,
-                          offset: const Offset(0, 3),
+                  child: GestureDetector(
+                    onTap: (){
+                      profileController.logoutUser();
+                    },
+                    child: Container(
+                      height: 55,
+                      width: 55,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 3,
+                            blurRadius: 6,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                      ),
+                      child: ClipOval(
+                        child: Image.asset(
+                          powerIcon,
+                          height: 55,
+                          width: 55,
+                          fit: BoxFit.cover,
                         ),
-                      ],
-                      shape: BoxShape.circle,
-                    ),
-                    child: ClipOval(
-                      child: Image.asset(
-                        powerIcon,
-                        height: 55,
-                        width: 55,
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
