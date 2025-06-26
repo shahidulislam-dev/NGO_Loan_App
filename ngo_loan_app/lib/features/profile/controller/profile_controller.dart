@@ -9,7 +9,6 @@ class ProfileController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     fetchUserData();
     super.onInit();
   }

@@ -1,8 +1,8 @@
 
 import 'package:get/get.dart';
 import 'package:ngo_app/features/profile/controller/profile_controller.dart';
+import 'package:ngo_app/features/profile/presentation/screen/edit_profile_screen.dart';
 
-import 'package:ngo_app/features/edit/profile/edit_profile_screen.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../common/const/colors.dart';
 import '../../../../common/const/images.dart';
-import '../../../authentication/presentation/screen/login_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
@@ -30,26 +29,31 @@ class ProfileScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 15),
               Center(
-                child: Container(
-                  height: 142,
-                  width: 142,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppColors.darkGrey, width: 2),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 5,
-                        blurRadius: 10,
-                        offset: const Offset(0, -3),
+                child: Obx(() {
+                  final imageUrl = controller.userData['image'];
+                  return Container(
+                    height: 142,
+                    width: 142,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: AppColors.darkGrey, width: 2),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 5,
+                          blurRadius: 10,
+                          offset: const Offset(0, -3),
+                        ),
+                      ],
+                      image: DecorationImage(
+                        image: imageUrl != null && imageUrl != ''
+                            ? NetworkImage(imageUrl)
+                            : const AssetImage(profileImage) as ImageProvider,
+                        fit: BoxFit.cover,
                       ),
-                    ],
-                    image: const DecorationImage(
-                      image: AssetImage(profileImage),
-                      fit: BoxFit.cover,
                     ),
-                  ),
-                ),
+                  );
+                }),
               ),
               const SizedBox(height: 10),
                Center(
@@ -100,7 +104,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 20),
               customButton(
                 onPressed: () {
-                  Get.to(const EditProfileScreen());
+                  Get.to( EditProfileScreen());
                 },
                 text: "Edit Profile",
               ),
