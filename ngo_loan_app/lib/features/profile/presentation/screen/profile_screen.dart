@@ -1,8 +1,8 @@
 
 import 'package:get/get.dart';
+import 'package:ngo_app/app_route.dart';
 import 'package:ngo_app/features/profile/controller/profile_controller.dart';
 
-import 'package:ngo_app/features/edit/profile/edit_profile_screen.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../common/const/colors.dart';
 import '../../../../common/const/images.dart';
-import '../../../authentication/presentation/screen/login_screen.dart';
+
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
@@ -44,13 +44,27 @@ class ProfileScreen extends StatelessWidget {
                         offset: const Offset(0, -3),
                       ),
                     ],
-                    image: const DecorationImage(
-                      image: AssetImage(profileImage),
+                  ),
+                  child: ClipOval(
+                    child: controller.userData['image'] != null && controller.userData['image'].toString().isNotEmpty
+                        ? Image.network(
+                      controller.userData['image'],
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Image.asset(
+                          profileImage,
+                          fit: BoxFit.cover,
+                        );
+                      },
+                    )
+                        : Image.asset(
+                      profileImage,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
               ),
+
               const SizedBox(height: 10),
                Center(
                 child: Obx(()=> CustomText(
@@ -100,7 +114,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 20),
               customButton(
                 onPressed: () {
-                  Get.to(const EditProfileScreen());
+                 Get.toNamed(AppRoute.editProfile);
                 },
                 text: "Edit Profile",
               ),
