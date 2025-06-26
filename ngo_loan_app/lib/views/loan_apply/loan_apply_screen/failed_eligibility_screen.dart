@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
+import 'package:ngo_app/features/navbar/presentation/nav_bar.dart';
 
-import 'package:ngo_app/views/home/home.dart';
+
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button_two.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
@@ -97,7 +98,7 @@ class FailedEligibilityScreen extends StatelessWidget {
                       const SizedBox(height: 100),
                       CustomButtonTwo(
                         onPressed: () {
-                          Get.to(const Home());
+                          Get.to(NavBar());
                         },
                         buttonColor: Colors.white,
                         text: "Back To Home",

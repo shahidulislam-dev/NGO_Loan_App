@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ngo_app/features/navbar/presentation/nav_bar.dart';
 
-import 'package:ngo_app/views/home/home_screen.dart';
 
 import '../../../common/service/session_service.dart';
 
@@ -34,7 +34,7 @@ class SignInController extends GetxController {
       await SessionService.saveUserSession(userCredential.user!.uid);
 
       Get.snackbar("Success", "Login successful");
-      Get.offAll(() => const HomeScreen());
+      Get.offAll(() =>  NavBar());
     } on FirebaseAuthException catch (e) {
       String message;
       switch (e.code) {
