@@ -44,14 +44,29 @@ class ProfileController extends GetxController {
     }
   }
 
-  Future<void> logoutUser() async {
+  void logoutUser() async {
+    await FirebaseAuth.instance.signOut();
+    Get.offAllNamed('/login'); // Or your route to login
+  }
+
+  void deleteUserAccount() async {
     try {
-      await FirebaseAuth.instance.signOut();
-      // After logout, navigate to login or welcome screen
-      Get.offAllNamed(AppRoute.login); // Replace with your login route name
+      final user = FirebaseAuth.instance.currentUser;
+      final uid = user?.uid;
+
+      // Optional: delete Firestore user data
+      if (uid != null) {
+        await FirebaseFirestore.instance.collection('users').doc(uid).delete();
+      }
+
+      // Delete account
+      await user?.delete();
+      Get.offAllNamed('/register'); // Or your landing screen
+      Get.snackbar("Account Deleted", "Your account has been permanently deleted.");
     } catch (e) {
-      Get.snackbar("Logout Failed", e.toString());
+      Get.snackbar("Error", "❌ Failed to delete account.");
     }
   }
+
 
 }
