@@ -1,11 +1,9 @@
 import 'package:get/get.dart';
 import 'package:ngo_app/features/authentication/presentation/screen/registration_screen.dart';
-import 'package:ngo_app/features/navbar/presentation/nav_bar.dart';
 import 'package:ngo_app/features/splash/presentation/screen/splash_screen.dart';
 import 'package:ngo_app/features/welcome/presentation/screen/first_welcome_screen.dart';
 import 'package:ngo_app/features/welcome/presentation/screen/second_welcome_screen.dart';
 import 'package:ngo_app/features/welcome/presentation/screen/third_welcome_screen.dart';
-
 
 
 import 'features/authentication/presentation/screen/login_screen.dart';
@@ -20,7 +18,6 @@ class AppRoute{
   static const String registration = "/registration";
   static const String login = "/login";
   static const String home = "/home";
-  static const String navBar = "/navBar";
 
   static List<GetPage> routes = [
     GetPage(name: init, page: ()=> SplashScreen()),
@@ -30,7 +27,6 @@ class AppRoute{
     GetPage(name: registration, page: ()=>RegistrationScreen()),
     GetPage(name: login, page: ()=> LoginScreen()),
     GetPage(name: home, page: ()=>HomeScreen()),
-    GetPage(name: navBar, page: ()=>NavBar())
 
   ];
 }

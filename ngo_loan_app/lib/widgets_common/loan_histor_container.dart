@@ -17,7 +17,7 @@ Widget loanHistoryContainer(String label1, String value1, String label2, String 
           ],
         ),
       ),
-
+const SizedBox(width: 30,),
       Expanded(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

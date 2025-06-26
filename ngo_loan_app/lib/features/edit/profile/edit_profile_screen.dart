@@ -1,11 +1,13 @@
 
+import 'package:get/get.dart';
+import 'package:ngo_app/features/edit/profile/edit_profile_controller.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_radio.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/district_dropdown.dart';
 
-import '../../common/const/const.dart';
+import '../../../common/const/const.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -15,9 +17,9 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController dobController = TextEditingController();
-  String maritalStatus = "Unmarried";
+
+
+  final controller = Get.put(EditProfileController());
 
   @override
   Widget build(BuildContext context) {
@@ -40,26 +42,25 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const SizedBox(height: 10),
               Center(
-                child: Container(
-                  height: 142,
-                  width: 142,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppColors.darkGrey, width: 2),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 5,
-                        blurRadius: 10,
-                        offset: const Offset(0, -3),
+                child: Obx(() {
+                  return GestureDetector(
+                    onTap: controller.pickImage,
+                    child: Container(
+                      height: 142,
+                      width: 142,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: AppColors.darkGrey, width: 2),
+                        image: DecorationImage(
+                          image: controller.selectedImage.value != null
+                              ? FileImage(controller.selectedImage.value!)
+                              : const AssetImage(profileImage) as ImageProvider,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ],
-                    image: const DecorationImage(
-                      image: AssetImage(profileImage),
-                      fit: BoxFit.cover,
                     ),
-                  ),
-                ),
+                  );
+                }),
               ),
               const SizedBox(height: 10),
               const CustomText(
@@ -69,9 +70,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const SizedBox(height: 10),
               CustomTextfield(
-                controller: nameController,
+                controller: controller.nameController,
                 hintText: "Gokul Kumari",
-                enabled: false,
+                enabled: true,
               ),
               const SizedBox(height: 10),
               const CustomText(
@@ -81,7 +82,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const SizedBox(height: 10),
               CustomTextfield(
-                controller: nameController,
+                controller: controller.phoneController,
                 hintText: "01765782562",
               ),
               const SizedBox(height: 10),
@@ -92,7 +93,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const SizedBox(height: 10),
               CustomTextfield(
-                controller: nameController,
+                controller: controller.altPhoneController,
                 hintText: "01765782562",
               ),
               const SizedBox(height: 10),
@@ -103,7 +104,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const SizedBox(height: 10),
               CustomTextfield(
-                controller: nameController,
+                controller: controller.emailController,
                 hintText: "shahidul@gmail.com",
               ),
               const SizedBox(height: 10),
@@ -114,7 +115,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const SizedBox(height: 10),
               TextField(
-                controller: dobController,
+                controller: controller.dobController,
                 readOnly: true,
                 onTap: () async {
                   DateTime? pickedDate = await showDatePicker(
@@ -127,7 +128,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     String formattedDate =
                         "${pickedDate.day.toString().padLeft(2, '0')}/${pickedDate.month.toString().padLeft(2, '0')}/${pickedDate.year}";
                     setState(() {
-                      dobController.text = formattedDate;
+                      controller.dobController.text = formattedDate;
                     });
                   }
                 },
@@ -147,7 +148,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const SizedBox(height: 10),
               CustomTextfield(
-                controller: nameController,
+                controller: controller.addressController,
                 hintText: "Monipur, Mirpur",
               ),
               const SizedBox(height: 10),
@@ -158,7 +159,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const SizedBox(height: 10),
               CustomTextfield(
-                controller: nameController,
+                controller: controller.educationController,
                 hintText: "Masters of Science",
               ),
               const SizedBox(height: 10),
@@ -199,22 +200,18 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 ],
               ),
               const SizedBox(height: 10),
-              Row(
+              Obx(() => Row(
                 children: [
-                  const CustomText(
-                    "Status : ",
-                    size: 16,
-                    color: AppColors.darkGrey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  customRadio("Married", maritalStatus, (val) {
-                    setState(() => maritalStatus = val);
+                  const CustomText("Status : ", size: 16),
+                  customRadio("Married", controller.maritalStatus.value, (val) {
+                    controller.maritalStatus.value = val;
                   }),
-                  customRadio("Unmarried", maritalStatus, (val) {
-                    setState(() => maritalStatus = val);
+                  customRadio("Unmarried", controller.maritalStatus.value, (val) {
+                    controller.maritalStatus.value = val;
                   }),
                 ],
-              ),
+              )),
+
               const SizedBox(height: 30),
               customButton(onPressed: () {}, text: "Save Changes"),
               const SizedBox(height: 20),

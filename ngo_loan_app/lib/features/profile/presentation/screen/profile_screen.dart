@@ -2,7 +2,7 @@
 import 'package:get/get.dart';
 import 'package:ngo_app/features/profile/controller/profile_controller.dart';
 
-import 'package:ngo_app/views/profile_screen/edit_profile_screen.dart';
+import 'package:ngo_app/features/edit/profile/edit_profile_screen.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';

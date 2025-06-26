@@ -6,7 +6,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ngo_app/features/profile/controller/profile_controller.dart';
 import 'package:ngo_app/views/donate_screen/donate_screen.dart';
 
-import 'package:ngo_app/views/loan_history/loan_history_screen.dart';
+import 'package:ngo_app/features/loan_history/loan_history_screen.dart';
 
 import 'package:ngo_app/widgets_common/custom_text.dart';
 
