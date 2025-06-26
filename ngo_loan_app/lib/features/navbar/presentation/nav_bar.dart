@@ -175,7 +175,7 @@ class _HomeState extends State<Home> {
         ),
         body: Obx(() => Column(
           children: [
-            Expanded(child: navScreens.elementAt(selectedIndex.value)),
+            ///Expanded(child: navScreens.elementAt(selectedIndex.value)),
           ],
         )),
         bottomNavigationBar: Obx(
