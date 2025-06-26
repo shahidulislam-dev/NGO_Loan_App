@@ -1,4 +1,9 @@
 
+import 'dart:io';
+
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_radio.dart';
 import 'package:ngo_app/widgets_common/custom_textfield.dart';
@@ -18,6 +23,35 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController dobController = TextEditingController();
   String maritalStatus = "Unmarried";
+
+  final ImagePicker _picker = ImagePicker();
+  File? _selectedImage;
+
+  Future<void> _pickImage() async {
+    final picked = await _picker.pickImage(source: ImageSource.gallery);
+    if (picked != null) {
+      final file = File(picked.path);
+      setState(() {
+        _selectedImage = file;
+      });
+
+      await _uploadImageToFirebase(file);
+    }
+  }
+  Future<void> _uploadImageToFirebase(File imageFile) async {
+    try {
+      String fileName = 'ngo_app/${DateTime.now().millisecondsSinceEpoch}.jpg';
+      Reference ref = FirebaseStorage.instance.ref().child(fileName);
+      UploadTask uploadTask = ref.putFile(imageFile);
+      TaskSnapshot snapshot = await uploadTask;
+
+      String downloadUrl = await snapshot.ref.getDownloadURL();
+      Get.snackbar('Success','✅ Uploaded to Firebase');
+
+    } catch (e) {
+      Get.snackbar('Error','❌ Upload failed');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,23 +74,28 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const SizedBox(height: 10),
               Center(
-                child: Container(
-                  height: 142,
-                  width: 142,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppColors.darkGrey, width: 2),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        spreadRadius: 5,
-                        blurRadius: 10,
-                        offset: const Offset(0, -3),
+                child: GestureDetector(
+                  onTap: _pickImage,
+                  child: Container(
+                    height: 142,
+                    width: 142,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: AppColors.darkGrey, width: 2),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          spreadRadius: 5,
+                          blurRadius: 10,
+                          offset: const Offset(0, -3),
+                        ),
+                      ],
+                      image: DecorationImage(
+                        image: _selectedImage != null
+                            ? FileImage(_selectedImage!) as ImageProvider
+                            : const AssetImage(profileImage),
+                        fit: BoxFit.cover,
                       ),
-                    ],
-                    image: const DecorationImage(
-                      image: AssetImage(profileImage),
-                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

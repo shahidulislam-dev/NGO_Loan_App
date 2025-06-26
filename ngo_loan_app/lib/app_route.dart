@@ -4,10 +4,10 @@ import 'package:ngo_app/features/splash/presentation/screen/splash_screen.dart';
 import 'package:ngo_app/features/welcome/presentation/screen/first_welcome_screen.dart';
 import 'package:ngo_app/features/welcome/presentation/screen/second_welcome_screen.dart';
 import 'package:ngo_app/features/welcome/presentation/screen/third_welcome_screen.dart';
-import 'package:ngo_app/views/home/home_screen.dart';
 
 
 import 'features/authentication/presentation/screen/login_screen.dart';
+import 'features/home/presentation/screen/home_screen.dart';
 
 class AppRoute{
   AppRoute();
