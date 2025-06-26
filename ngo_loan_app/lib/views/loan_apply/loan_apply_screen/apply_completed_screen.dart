@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'package:ngo_app/views/loan_history/loan_history_screen.dart';
+import 'package:ngo_app/features/loan_history/loan_history_screen.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 
