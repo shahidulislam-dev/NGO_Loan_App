@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ngo_app/features/loan/presention/screens/education/help/education_help_screen.dart';
 
-import 'package:ngo_app/views/loan_apply/education_help/exam_score_eligibility.dart';
-import 'package:ngo_app/views/loan_apply/education_help/failed_eligibility_low_score.dart';
+import 'package:ngo_app/features/loan/presention/screens/education/help/exam_score_eligibility.dart';
+import 'package:ngo_app/features/loan/presention/screens/education/help/failed_eligibility_low_score.dart';
 import 'package:ngo_app/widgets_common/custom_button_two.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 
-import '../../../common/const/colors.dart';
+import '../../../../../../common/const/colors.dart';
 
 class LoanExamScreen extends StatefulWidget {
   const LoanExamScreen({super.key});
@@ -54,7 +55,7 @@ class _LoanExamScreenState extends State<LoanExamScreen> {
     } else {
       double percent = correctAnswers / questions.length;
       if (percent >= 0.7) {
-        Get.to(() => ExamScoreEligibility(score: correctAnswers.toInt(), total: questions.length.toInt()));
+        Get.to(() => EducationHelpScreen(score: correctAnswers, total: questions.length));
       } else {
         Get.to(() =>  FailedEligibilityLowScore(score: correctAnswers.toInt(), total: questions.length.toInt()));
       }

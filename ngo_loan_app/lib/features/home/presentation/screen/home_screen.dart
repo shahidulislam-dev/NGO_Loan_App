@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:ngo_app/features/profile/controller/profile_controller.dart';
 
 import 'package:ngo_app/views/loan_apply/complete_kyc/complet_kyc_screen.dart';
-import 'package:ngo_app/views/loan_apply/education_help/exam_screen.dart';
+import 'package:ngo_app/features/loan/presention/screens/education/help/exam_screen.dart';
 import 'package:ngo_app/widgets_common/home_card.dart';
 
 import 'package:ngo_app/widgets_common/custom_text.dart';

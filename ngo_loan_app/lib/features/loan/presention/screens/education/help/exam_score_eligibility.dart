@@ -11,7 +11,7 @@ import 'package:ngo_app/widgets_common/custom_checkbox.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/score_circle.dart';
 
-import '../../../common/const/colors.dart';
+import '../../../../../../common/const/colors.dart';
 
 class ExamScoreEligibility extends StatelessWidget {
   final int score;

@@ -12,6 +12,7 @@ class CustomTextfield extends StatelessWidget {
   final Widget? suffixIcon;
   final bool readOnly;
   final VoidCallback? onTap;
+  final String? Function(String?)? validator;
 
   const CustomTextfield({
     super.key,
@@ -25,6 +26,7 @@ class CustomTextfield extends StatelessWidget {
     this.enabled,
     this.readOnly = false,
     this.onTap,
+    this.validator,
   });
 
   @override
@@ -40,6 +42,7 @@ class CustomTextfield extends StatelessWidget {
       enabled: enabled,
       readOnly: readOnly,
       onTap: onTap,
+      validator: validator,
       style: const TextStyle(fontSize: 18),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(top: 15.0, bottom: 15, left: 10),

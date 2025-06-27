@@ -6,7 +6,7 @@ import 'package:ngo_app/widgets_common/custom_button_two.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/score_circle.dart';
 
-import '../../../common/const/const.dart';
+import '../../../../../../common/const/const.dart';
 
 class FailedEligibilityLowScore extends StatelessWidget {
   final int score;
