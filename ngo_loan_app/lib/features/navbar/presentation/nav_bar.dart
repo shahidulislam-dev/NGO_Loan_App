@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ngo_app/features/profile/controller/profile_controller.dart';
-import 'package:ngo_app/views/donate_screen/donate_screen.dart';
+
 
 import 'package:ngo_app/features/loan_history/loan_history_screen.dart';
 
@@ -15,6 +15,7 @@ import '../../../common/const/colors.dart';
 import '../../../common/const/images.dart';
 import '../../../common/const/lists.dart';
 import '../../../common/const/styles.dart';
+import '../../donate/presentation/screen/donation_screen.dart';
 import '../../home/presentation/screen/home_screen.dart';
 import '../../profile/presentation/screen/profile_screen.dart';
 import '../controller/nav_controller.dart';
@@ -29,8 +30,8 @@ class NavBar extends StatelessWidget {
   final List<Widget> navScreens =  [
     HomeScreen(),
      ProfileScreen(),
-    const DonateScreen(),
-    const LoanHistoryScreen(),
+      DonateScreen(),
+     LoanHistoryScreen(),
   ];
 
   @override

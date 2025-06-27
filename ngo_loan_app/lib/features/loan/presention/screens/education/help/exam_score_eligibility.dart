@@ -161,7 +161,7 @@ class ExamScoreEligibility extends StatelessWidget {
                   const SizedBox(height: 20),
                   CustomButtonTwo(
                     onPressed: () {
-                      Get.to(const ApplyCompletedScreen());
+                      Get.to( ApplyCompletedScreen());
                     },
                     text: "Accept",
                     buttonColor: Colors.white,
