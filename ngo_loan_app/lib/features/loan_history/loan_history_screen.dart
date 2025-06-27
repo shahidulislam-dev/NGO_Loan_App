@@ -121,8 +121,8 @@ class LoanHistoryScreen extends StatelessWidget {
                                           value: 0.68,
                                           minHeight: 10,
                                           backgroundColor: Colors.grey[300],
-                                          valueColor: const AlwaysStoppedAnimation<Color>(
-                                            Color(0xFFFF4117),
+                                          valueColor:  AlwaysStoppedAnimation<Color>(
+                                          apps.first['status']=="Active"? Colors.green:Colors.red,
                                           ),
                                         ),
                                       ),
