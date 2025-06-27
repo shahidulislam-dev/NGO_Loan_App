@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:ngo_app/features/profile/controller/profile_controller.dart';
 
 class EditProfileController extends GetxController {
   final nameController = TextEditingController();
@@ -15,6 +16,7 @@ class EditProfileController extends GetxController {
   final emailController = TextEditingController();
   final addressController = TextEditingController();
   final educationController = TextEditingController();
+  final ProfileController controller = Get.find<ProfileController>();
 
   var maritalStatus = "Unmarried".obs;
   var selectedImage = Rxn<File>();
@@ -117,6 +119,7 @@ class EditProfileController extends GetxController {
         'marital_status': maritalStatus.value,
         'image': imageUrl.value.isNotEmpty ? imageUrl.value : previousData['image'],
       });
+      controller.fetchUserData();
 
       Get.snackbar('Success', '✅ Profile updated');
     } catch (e) {

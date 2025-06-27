@@ -31,7 +31,7 @@ class NavBar extends StatelessWidget {
     HomeScreen(),
      ProfileScreen(),
       DonateScreen(),
-    const LoanHistoryScreen(),
+     LoanHistoryScreen(),
   ];
 
   @override

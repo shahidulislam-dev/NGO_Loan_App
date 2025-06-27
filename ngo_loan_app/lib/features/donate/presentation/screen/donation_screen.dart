@@ -16,7 +16,7 @@ class DonateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController amountController = TextEditingController();
+
     return Scaffold(
         body: bgWidget(
             child:   SingleChildScrollView(

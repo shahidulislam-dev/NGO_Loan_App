@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:ngo_app/features/loan_application/controller/apply_loan_controller.dart';
 
 import 'package:ngo_app/features/loan_history/loan_history_screen.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
@@ -7,7 +9,8 @@ import 'package:ngo_app/widgets_common/custom_text.dart';
 import '../../../common/const/const.dart';
 
 class ApplyCompletedScreen extends StatelessWidget {
-  const ApplyCompletedScreen({super.key});
+   ApplyCompletedScreen({super.key});
+  final LoanController controller = Get.find<LoanController>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,10 @@ class ApplyCompletedScreen extends StatelessWidget {
             const SizedBox(height: 20),
             const CustomText("You have successfully applied for a loan. A response will be sent \nshortly.", size: 20, fontWeight: FontWeight.w600, color: AppColors.darkGrey, textAlign: TextAlign.center,),
             const SizedBox(height: 40),
-            customButton(onPressed: (){Get.to(const LoanHistoryScreen());}, text: "Go To Loan History")
+            customButton(onPressed: (){
+              final String? uid = FirebaseAuth.instance.currentUser?.uid;
+              controller.fetchUserApplications(uid!);},
+               text: "Go To Loan History")
             
           ],
         ),
