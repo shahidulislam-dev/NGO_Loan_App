@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:ngo_app/features/dashboard/presentation/screen/user_dashboard_screen.dart';
 import 'package:ngo_app/features/profile/controller/profile_controller.dart';
 
 
@@ -31,7 +32,7 @@ class NavBar extends StatelessWidget {
     HomeScreen(),
      ProfileScreen(),
       DonateScreen(),
-     LoanHistoryScreen(),
+     const LoanHistoryScreen(),
   ];
 
   @override
@@ -143,7 +144,12 @@ class NavBar extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.white,
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.pop(context); // close the drawer first
+                                if (index == 0) {
+                                  Get.to(() => const UserDashboardScreen());
+                                }
+                              },
                             );
                           },
                         ),

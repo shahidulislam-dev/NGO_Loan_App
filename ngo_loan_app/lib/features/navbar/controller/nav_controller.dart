@@ -19,4 +19,5 @@ class NavController extends GetxController {
       return true;
     }
   }
+
 }

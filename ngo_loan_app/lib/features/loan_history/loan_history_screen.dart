@@ -4,12 +4,15 @@ import 'package:ngo_app/common/const/styles.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_text.dart';
 import 'package:ngo_app/widgets_common/loan_histor_container.dart';
+import 'package:ngo_app/widgets_common/repayment_history.dart';
 
 class LoanHistoryScreen extends StatelessWidget {
   const LoanHistoryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: bgWidget(
         child: Padding(
@@ -34,8 +37,8 @@ class LoanHistoryScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 60),
                 Container(
+                  height: screenHeight,
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 1,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -46,6 +49,7 @@ class LoanHistoryScreen extends StatelessWidget {
                   child: Stack(
                     clipBehavior: Clip.none,
                     children: [
+                      // Main content inside the container
                       Padding(
                         padding: const EdgeInsets.only(
                           top: 190,
@@ -54,7 +58,9 @@ class LoanHistoryScreen extends StatelessWidget {
                           bottom: 20,
                         ),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            // Loan Status Box
                             Container(
                               height: 100,
                               width: double.infinity,
@@ -108,30 +114,30 @@ class LoanHistoryScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
+
+                            const SizedBox(height: 30),
+
+                            // Repayment History Title
+                            const CustomText(
+                              "Repayment History",
+                              size: 16,
+                              color: AppColors.fontGrey,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            const SizedBox(height: 10),
+
+                            // Repayment History Row
+                            const RepaymentHistoryTile(
+                              title: "August Repayment",
+                              date: "10/04/2021",
+                              amount: "₦65,000.00",
+                            ),
+
                           ],
                         ),
                       ),
-                      const SizedBox(height: 300,),
-                      const CustomText("Repayment History",size: 16,
-                        color: AppColors.fontGrey,
-                        fontWeight: FontWeight.w500,),
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                height: 28,
-                                width: 28,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20)
-                                ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
 
-                      // Floating card overlapping top edge
+                      // Floating Info Card
                       Positioned(
                         top: -50,
                         left: 25,
@@ -150,13 +156,25 @@ class LoanHistoryScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 loanHistoryContainer(
-                                    "Amount", "₹200,000.00", "Duration", "7 months"),
+                                  "Amount",
+                                  "₹200,000.00",
+                                  "Duration",
+                                  "7 months",
+                                ),
                                 const SizedBox(height: 10),
                                 loanHistoryContainer(
-                                    "Monthly Repayment", "₹25,000.00", "Loan Release Date", "01/23/2021"),
+                                  "Monthly Repayment",
+                                  "₹25,000.00",
+                                  "Loan Release Date",
+                                  "01/23/2021",
+                                ),
                                 const SizedBox(height: 10),
                                 loanHistoryContainer(
-                                    "Total Payable", "₹210,000.00", "Next Due Date", "08/15/2025"),
+                                  "Total Payable",
+                                  "₹210,000.00",
+                                  "Next Due Date",
+                                  "08/15/2025",
+                                ),
                               ],
                             ),
                           ),
